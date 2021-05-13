@@ -1,5 +1,5 @@
 # Usuable-Meat-Mod
-Changes The Amount of Usuable Meat Upon Killing an Animal in The Long Dark.
+Changes The Amount of Useable Meat Upon Killing an Animal in The Long Dark.
 
 # Installation Instructions:
 1. If you haven't installed melonloader yet do so now by downloading and running https://github.com/LavaGang/MelonLoader/releases/tag/v0.2.7.4
