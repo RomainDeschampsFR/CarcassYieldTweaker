@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MelonLoader;
 using UnityEngine;
 
-namespace UsableMeatMod
+namespace UseableMeatMod
 {
     public class Implementation : MelonMod
     {  

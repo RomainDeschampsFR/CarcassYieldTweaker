@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using ModSettings;
 
-namespace UsableMeatMod
+namespace UseableMeatMod
 {
     internal static class Settings
     {
         internal static void OnLoad()
         {
-            Settings.options = new UsableMeatModSettings();
+            Settings.options = new UseableMeatModSettings();
             Settings.options.AddToModSettings("Usable Meat Mod Settings");
         }
-        internal static UsableMeatModSettings options;
+        internal static UseableMeatModSettings options;
     }
 }
