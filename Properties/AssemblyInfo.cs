@@ -35,5 +35,5 @@ using MelonLoader;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: MelonInfo(typeof(UsableMeatMod.Implementation), "UsableMeatMod", "1.2", "JoshuaAC")]
+[assembly: MelonInfo(typeof(UseableMeatMod.Implementation), "UseableMeatMod", "1.2", "JoshuaAC")]
 [assembly: MelonGame("Hinterland", "TheLongDark")]
