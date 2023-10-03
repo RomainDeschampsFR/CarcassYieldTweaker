@@ -12,7 +12,7 @@ namespace UseableMeatMod
         internal static void OnLoad()
         {
             Settings.options = new UseableMeatModSettings();
-            Settings.options.AddToModSettings("Usable Meat Mod Settings");
+            Settings.options.AddToModSettings("Useable Meat Mod Settings");
         }
         internal static UseableMeatModSettings options;
     }
