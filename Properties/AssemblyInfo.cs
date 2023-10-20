@@ -1,8 +1,6 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿using MelonLoader;
+using System.Reflection;
 using System.Runtime.InteropServices;
-using MelonLoader;
-using UseableMeatMod;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
