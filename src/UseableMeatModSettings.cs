@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using ModSettings;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using ModSettings;
-using UnityEngine;
 
 namespace UseableMeatMod
 {
@@ -18,18 +12,43 @@ namespace UseableMeatMod
             {
                 this.UsePreset((int)newValue);
             }
-            else
-            {
-                bool flag2 = field.Name == "BearSliderMax" || field.Name ==
-                "BearSliderMin" || field.Name == "BearGutSlider" || field.Name == "BearQuarterSlider" || field.Name ==
-                "DeerSliderMax" || field.Name == "DeerSliderMin" || field.Name == "DeerGutSlider" || field.Name == "DeerQuarterSlider" ||
-                field.Name == "WolfSliderMax" || field.Name == "WolfSliderMin" ||
-                field.Name == "WolfGutSlider" || field.Name == "WolfQuarterSlider" || field.Name == "MooseSliderMax" ||
-                field.Name == "MooseSliderMin" || field.Name == "MooseGutSlider" || field.Name == "MooseQuarterSlider" || field.Name == "QuarterWasteMultipler";
-                if (flag2)
-                { 
-                }
-            }
+            /* else
+             {
+                 bool flag2 = field.Name == "RabbitSliderMax" ||
+                             field.Name == "RabbitSliderMin" ||
+                             field.Name == "RabbitGutSlider" ||
+                             field.Name == "PtarmiganSliderMax" ||
+                             field.Name == "PtarmiganSliderMin" ||
+                             field.Name == "BearSliderMax" || 
+                             field.Name == "BearSliderMin" || 
+                             field.Name == "BearGutSlider" || 
+                             field.Name == "BearQuarterSlider" || 
+                             field.Name == "StagSliderMax" || 
+                             field.Name == "StagSliderMin" || 
+                             field.Name == "StagGutSlider" || 
+                             field.Name == "StagQuarterSlider" ||
+                             field.Name == "DoeSliderMax" ||
+                             field.Name == "DoeSliderMin" ||
+                             field.Name == "DoeGutSlider" ||
+                             field.Name == "DoeQuarterSlider" ||
+                             field.Name == "WolfSliderMax" || 
+                             field.Name == "WolfSliderMin" ||
+                             field.Name == "WolfGutSlider" || 
+                             field.Name == "WolfQuarterSlider" || 
+                             field.Name == "MooseSliderMax" ||
+                             field.Name == "MooseSliderMin" || 
+                             field.Name == "MooseGutSlider" || 
+                             field.Name == "MooseQuarterSlider" ||
+                             field.Name == "CougarSliderMax" ||
+                             field.Name == "CougarSliderMin" ||
+                             field.Name == "CougarGutSlider" ||
+                             field.Name == "CougarQuarterSlider" ||
+                             field.Name == "QuarterWasteMultipler";
+
+                 if (flag2)
+                 { 
+                 }
+             }*/
             base.RefreshGUI();
         }
         private void UsePreset(int preset)
@@ -37,61 +56,101 @@ namespace UseableMeatMod
             switch (preset)
             {
                 case 0:
-                    this.BearSliderMax = (int)42f;
+                    this.RabbitSliderMax = 1.5f;
+                    this.RabbitSliderMin = 0.75f;
+                    this.RabbitGutSlider = (int)2f;
+                    this.PtarmiganSliderMax = 1.5f;
+                    this.PtarmiganSliderMin = 0.75f;
+                    this.BearSliderMax = (int)40f;
                     this.BearSliderMin = (int)25f;
                     this.BearGutSlider = (int)10f;
-                    this.BearQuarterSlider = (int)12f;
-                    this.DeerSliderMax = (int)10f;
-                    this.DeerSliderMin = (int)8f;
-                    this.DeerGutSlider = (int)2f;
-                    this.DeerQuarterSlider = (int)5f;
+                    this.BearQuarterSlider = 5f;
+                    this.StagSliderMax = (int)13f;
+                    this.StagSliderMin = (int)11f;
+                    this.StagGutSlider = (int)2f;
+                    this.StagQuarterSlider = 2.5f;
+                    this.DoeSliderMax = (int)9f;
+                    this.DoeSliderMin = (int)7f;
+                    this.DoeGutSlider = (int)2f;
+                    this.DoeQuarterSlider = 2.5f;
                     this.WolfSliderMax = (int)6f;
                     this.WolfSliderMin = (int)3f;
                     this.WolfGutSlider = (int)2f;
-                    this.WolfQuarterSlider = (int)2f;
+                    this.WolfQuarterSlider = 2.5f;
                     this.MooseSliderMax = (int)45f;
-                    this.MooseSliderMin = (int)32f;
+                    this.MooseSliderMin = (int)30f;
                     this.MooseGutSlider = (int)12f;
-                    this.MooseQuarterSlider = (int)15f;
-                    this.QuarterWasteMultipler = (int)2f;
+                    this.MooseQuarterSlider = 5f;
+                    this.CougarSliderMax = (int)1f;
+                    this.CougarSliderMin = (int)1f;
+                    this.CougarGutSlider = (int)1f;
+                    this.CougarQuarterSlider = 2.5f;
+                    this.QuarterWasteMultipler = 2f;
                     break;
                 case 1:
-                    this.BearSliderMax = (int)130f;
-                    this.BearSliderMin = (int)45f;
+                    //Meat values are based on data from canadian encyclopedia (see DATA.xlsx)
+                    this.RabbitSliderMax = 1.5f;
+                    this.RabbitSliderMin = 0.75f;
+                    this.RabbitGutSlider = (int)2f;
+                    this.PtarmiganSliderMax = 0.81f;
+                    this.PtarmiganSliderMin = 0.43f;
+                    this.BearSliderMax = (int)135f;
+                    this.BearSliderMin = (int)16f;
                     this.BearGutSlider = (int)25f;
-                    this.BearQuarterSlider = (int)30f;
-                    this.DeerSliderMax = (int)70f;
-                    this.DeerSliderMin = (int)22f;
-                    this.DeerGutSlider = (int)15f;
-                    this.DeerQuarterSlider = (int)18f;
-                    this.WolfSliderMax = (int)28f;
-                    this.WolfSliderMin = (int)14f;
+                    this.BearQuarterSlider = 25f;
+                    this.StagSliderMax = (int)57f;
+                    this.StagSliderMin = (int)38f;
+                    this.StagGutSlider = (int)15f;
+                    this.StagQuarterSlider = 15f;
+                    this.DoeSliderMax = (int)36f;
+                    this.DoeSliderMin = (int)16f;
+                    this.DoeGutSlider = (int)12f;
+                    this.DoeQuarterSlider = 10f;
+                    this.WolfSliderMax = (int)26f;
+                    this.WolfSliderMin = (int)7f;
                     this.WolfGutSlider = (int)6f;
-                    this.WolfQuarterSlider = (int)7f;
-                    this.MooseSliderMax = (int)320f;
-                    this.MooseSliderMin = (int)86f;
+                    this.WolfQuarterSlider = 7f;
+                    this.MooseSliderMax = (int)270f;
+                    this.MooseSliderMin = (int)121f;
                     this.MooseGutSlider = (int)40f;
-                    this.MooseQuarterSlider = (int)35f;
-                    this.QuarterWasteMultipler = (float)1.2f;
+                    this.MooseQuarterSlider = 30f;
+                    this.CougarSliderMax = (int)54f;
+                    this.CougarSliderMin = (int)13f;
+                    this.CougarGutSlider = (int)6f;
+                    this.CougarQuarterSlider = 18f;
+                    this.QuarterWasteMultipler = 1.2f;
                     break;
                 case 2:
-                    this.BearSliderMax = (int)86f;
-                    this.BearSliderMin = (int)40f;
-                    this.BearGutSlider = (int)15f;
-                    this.BearQuarterSlider = (int)15f;
-                    this.DeerSliderMax = (int)36f;
-                    this.DeerSliderMin = (int)20f;
-                    this.DeerGutSlider = (int)8f;
-                    this.DeerQuarterSlider = (int)18f;
-                    this.WolfSliderMax = (int)24f;
-                    this.WolfSliderMin = (int)8f;
-                    this.WolfGutSlider = (int)3f;
-                    this.WolfQuarterSlider = (int)12f;
-                    this.MooseSliderMax = (int)125f;
-                    this.MooseSliderMin = (int)70f;
-                    this.MooseGutSlider = (int)20f;
-                    this.MooseQuarterSlider = (int)30f;
-                    this.QuarterWasteMultipler = (float)1.2f;
+                    this.RabbitSliderMax = 1.5f;//Realistic unchanged
+                    this.RabbitSliderMin = 0.75f;//Realistic unchanged
+                    this.RabbitGutSlider = (int)2f;//Realistic unchanged
+                    this.PtarmiganSliderMax = 0.81f;//Realistic unchanged
+                    this.PtarmiganSliderMin = 0.43f;//Realistic unchanged
+                    this.BearSliderMax = (int)68f;//Realistic -50%
+                    this.BearSliderMin = (int)16f;//Realistic unchanged
+                    this.BearGutSlider = (int)12f;//Vanilla Value 12
+                    this.BearQuarterSlider = 15f;//Realistic -10
+                    this.StagSliderMax = (int)37f;//Realistic -50%
+                    this.StagSliderMin = (int)25f;//Realistic -33%
+                    this.StagGutSlider = (int)5f;//Arbitrary value
+                    this.StagQuarterSlider = 8f;//Arbitrary value
+                    this.DoeSliderMax = (int)18f;//Realistic -50%
+                    this.DoeSliderMin = (int)11f;//Realistic -33%
+                    this.DoeGutSlider = (int)3f;//Arbitrary value
+                    this.DoeQuarterSlider = 6f;//Arbitrary value
+                    this.WolfSliderMax = (int)13f;//Realistic -50%
+                    this.WolfSliderMin = (int)5f;//Realistic -33%
+                    this.WolfGutSlider = (int)2f;//Arbitrary value
+                    this.WolfQuarterSlider = 5f;//Arbitrary value
+                    this.MooseSliderMax = (int)135f;//Realistic -50%
+                    this.MooseSliderMin = (int)80f;//Realistic -33%
+                    this.MooseGutSlider = (int)16f;//Arbitrary value
+                    this.MooseQuarterSlider = 20f; //Arbitrary value
+                    this.CougarSliderMax = (int)27f;//Realistic -50%
+                    this.CougarSliderMin = (int)8f;//Realistic -33%
+                    this.CougarGutSlider = (int)5f;//Arbitrary value
+                    this.CougarQuarterSlider = 7f; //Arbitrary value
+                    this.QuarterWasteMultipler = 1.2f;
                     break;
 
             }
@@ -108,96 +167,164 @@ namespace UseableMeatMod
         })]
         public int preset = 0;
 
+        [Section("Rabbit")]
+        [Name("Maximum Meat (Kg)")]
+        [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Rabbit. Vanilla Value is 1.5")]
+        [Slider(0.75f, 5f)]
+        public float RabbitSliderMax = 1.5f;
+
+        [Name("Minimum Meat (Kg)")]
+        [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Rabbit. Vanilla Value is 0.75")]
+        [Slider(0.75f, 5f)]
+        public float RabbitSliderMin = 0.75f;
+
+        [Name("Gut Count")]
+        [Description("Change The Amount Of Guts To Harvest Upon Killing A Rabbit. Vanilla Value is 1")]
+        [Slider(1f, 10f)]
+        public int RabbitGutSlider = 1;
+
+        [Section("Ptarmigan (DLC)")]
+        [Name("Maximum Meat (Kg)")]
+        [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Ptarmigan. Vanilla Value is 1.5")]
+        [Slider(0.75f, 5f)]
+        public float PtarmiganSliderMax = 1.5f;
+
+        [Name("Minimum Meat (Kg)")]
+        [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Ptarmigan. Vanilla Value is 0.75")]
+        [Slider(0.75f, 5f)]
+        public float PtarmiganSliderMin = 0.75f;
+
         [Section("Bear")]
         [Name("Maximum Meat (Kg)")]
         [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Bear. Vanilla Value is 40")]
-        [Slider(1f, 500f)]
-        public int BearSliderMax = 1;
+        [Slider(1f, 300f)]
+        public int BearSliderMax = 40;
 
         [Name("Minimum Meat (Kg)")]
         [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Bear. Vanilla Value is 25")]
-        [Slider(1f, 500f)]
-        public int BearSliderMin = 1;
+        [Slider(1f, 300f)]
+        public int BearSliderMin = 25;
 
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Bear. Vanilla Value is 10")]
-        [Slider(1f, 100f)]
-        public int BearGutSlider = 1;
+        [Slider(1f, 50f)]
+        public int BearGutSlider = 10;
 
         [Name("Quarter Size")]
-        [Description("Change The Size Of Each Quarter")]
-        [Slider(1f, 100f)]
-        public int BearQuarterSlider = 1;
+        [Description("Change The Size Of Each Quarter. Vanilla Value is 5")]
+        [Slider(1f, 50f)]
+        public float BearQuarterSlider = 5f;
 
-        [Section("Deer")]
+        [Section("Stag")]
         [Name("Maximum Meat (Kg)")]
-        [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Deer. Vanilla Value is 10")]
-        [Slider(1f, 500f)]
-        public int DeerSliderMax = 1;
+        [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Stag. Vanilla Value is 13")]
+        [Slider(1f, 300f)]
+        public int StagSliderMax = 13;
 
         [Name("Minimum Meat (Kg)")]
-        [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Deer. Vanilla Value is 8")]
-        [Slider(1f, 500f)]
-        public int DeerSliderMin = 1;
+        [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Stag. Vanilla Value is 11")]
+        [Slider(1f, 300f)]
+        public int StagSliderMin = 11;
 
         [Name("Gut Count")]
-        [Description("Change The Amount Of Guts To Harvest Upon Killing A Deer. Vanilla Value is 2")]
-        [Slider(1f, 100f)]
-        public int DeerGutSlider = 1;
+        [Description("Change The Amount Of Guts To Harvest Upon Killing A Stag. Vanilla Value is 2")]
+        [Slider(1f, 50f)]
+        public int StagGutSlider = 2;
 
         [Name("Quarter Size")]
-        [Description("Change The Size Of Each Quarter")]
-        [Slider(1f, 100f)]
-        public int DeerQuarterSlider = 1;
+        [Description("Change The Size Of Each Quarter. Vanilla Value is 2.5")]
+        [Slider(1f, 50f)]
+        public float StagQuarterSlider = 2.5f;
+
+        [Section("Doe")]
+        [Name("Maximum Meat (Kg)")]
+        [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Doe. Vanilla Value is 9")]
+        [Slider(1f, 300f)]
+        public int DoeSliderMax = 9;
+
+        [Name("Minimum Meat (Kg)")]
+        [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Doe. Vanilla Value is 7")]
+        [Slider(1f, 300f)]
+        public int DoeSliderMin = 7;
+
+        [Name("Gut Count")]
+        [Description("Change The Amount Of Guts To Harvest Upon Killing A Doe. Vanilla Value is 2")]
+        [Slider(1f, 50f)]
+        public int DoeGutSlider = 2;
+
+        [Name("Quarter Size")]
+        [Description("Change The Size Of Each Quarter. Vanilla Value is 2.5")]
+        [Slider(1f, 50f)]
+        public float DoeQuarterSlider = 2.5f;
 
         [Section("Wolf")]
         [Name("Maximum Meat (Kg)")]
         [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Wolf. Vanilla Value is 6")]
-        [Slider(1f, 500f)]
-        public int WolfSliderMax = 1;
+        [Slider(1f, 300f)]
+        public int WolfSliderMax = 6;
 
         [Name("Minimum Meat (Kg)")]
         [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Wolf. Vanilla Value is 3")]
-        [Slider(1f, 500f)]
-        public int WolfSliderMin = 1;
+        [Slider(1f, 300f)]
+        public int WolfSliderMin = 3;
 
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Wolf. Vanilla Value is 2")]
-        [Slider(1f, 100f)]
-        public int WolfGutSlider = 1;
+        [Slider(1f, 50f)]
+        public int WolfGutSlider = 2;
 
         [Name("Quarter Size")]
-        [Description("Change The Size Of Each Quarter")]
-        [Slider(1f, 100f)]
-        public int WolfQuarterSlider = 1;
+        [Description("Change The Size Of Each Quarter. Vanilla Value is 2.5")]
+        [Slider(1f, 50f)]
+        public float WolfQuarterSlider = 2.5f;
 
         [Section("Moose")]
         [Name("Maximum Meat (Kg)")]
         [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Moose. Vanilla Value is 45")]
-        [Slider(1f, 500f)]
-        public int MooseSliderMax = 1;
+        [Slider(1f, 300f)]
+        public int MooseSliderMax = 45;
 
         [Name("Minimum Meat (Kg)")]
         [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Moose. Vanilla Value is 30")]
-        [Slider(1f, 500f)]
-        public int MooseSliderMin = 1;
+        [Slider(1f, 300f)]
+        public int MooseSliderMin = 30;
 
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Moose. Vanilla Value is 12")]
-        [Slider(1f, 100f)]
-        public int MooseGutSlider = 1;
+        [Slider(1f, 50f)]
+        public int MooseGutSlider = 12;
 
         [Name("Quarter Size")]
-        [Description("Change The Size Of Each Quarter")]
-        [Slider(1f, 100f)]
-        public int MooseQuarterSlider = 1;
+        [Description("Change The Size Of Each Quarter. Vanilla Value is 5")]
+        [Slider(1f, 50f)]
+        public float MooseQuarterSlider = 5f;
+
+        [Section("Cougar (DLC)")]
+        [Name("Maximum Meat (Kg)")]
+        [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Cougar. Vanilla Value is ?")]
+        [Slider(1f, 300f)]
+        public int CougarSliderMax = 1;
+
+        [Name("Minimum Meat (Kg)")]
+        [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Cougar. Vanilla Value is ?")]
+        [Slider(1f, 300f)]
+        public int CougarSliderMin = 1;
+
+        [Name("Gut Count")]
+        [Description("Change The Amount Of Guts To Harvest Upon Killing A Cougar. Vanilla Value is ?")]
+        [Slider(1f, 50f)]
+        public int CougarGutSlider = 1;
+
+        [Name("Quarter Size")]
+        [Description("Change The Size Of Each Quarter. Vanilla Value is ?")]
+        [Slider(1f, 50f)]
+        public float CougarQuarterSlider = 1;
 
         [Section("Quarter Waste Multiplier")]
         [Name("Waste")]
-        [Description("Changes the Amount of Waste, e.g. Bones")]
+        [Description("Changes the Amount of Waste, e.g. Bones. Vanilla Value is 2")]
         [Slider(0f, 2f)]
-        public float QuarterWasteMultipler = 1;
-
+        public float QuarterWasteMultipler = 2;
 
     }
 }

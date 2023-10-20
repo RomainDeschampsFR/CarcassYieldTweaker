@@ -15,10 +15,6 @@
     <Reference Include="Il2CppInterop.Runtime">
       <HintPath>..\..\..\..\Steam\steamapps\common\TheLongDark\MelonLoader\Dependencies\SupportModules\Il2CppInterop.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="MelonLoader, Version=0.4.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Steam\steamapps\common\TheLongDark\MelonLoader\net6\MelonLoader.dll</HintPath>
-    </Reference>
     <Reference Include="ModSettings">
       <HintPath>..\..\..\..\Steam\steamapps\common\TheLongDark\Mods\ModSettings.dll</HintPath>
     </Reference>
@@ -26,13 +22,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.23.0" />
+    <PackageReference Include="STBlade.Modding.TLD.ModSettings" Version="1.9.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
-    <Compile Remove="src\Implementation.cs" />
-    <Compile Remove="src\Patches.cs" />
-    <Compile Remove="src\Settings.cs" />
-    <Compile Remove="src\UseableMeatModSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="TLD_UseableMeat_DATA.xlsx" />
   </ItemGroup>
 </Project>

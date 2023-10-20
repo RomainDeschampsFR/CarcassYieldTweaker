@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MelonLoader;
+﻿using MelonLoader;
+using System;
 using UnityEngine;
 
 namespace UseableMeatMod
@@ -16,7 +12,7 @@ namespace UseableMeatMod
             Debug.Log($"[{Info.Name}] Version {Info.Version} loaded!");
             Settings.OnLoad();
         }
-           
+
     }
-      
+
 }
