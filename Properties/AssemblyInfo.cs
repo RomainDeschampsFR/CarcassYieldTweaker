@@ -1,4 +1,5 @@
-﻿using MelonLoader;
+﻿using CarcassYieldTweaker;
+using MelonLoader;
 using System.Reflection;
 using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
@@ -11,5 +12,5 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("d01ec3ff-fa2c-4b95-b8c8-f9eabfaf8b3d")]
-[assembly: MelonInfo(typeof(UseableMeatMod.Implementation), "UseableMeatMod", "1.3", "JoshuaAC")]
+[assembly: MelonInfo(typeof(Implementation), "CarcassYieldTweaker", "1.3", "JoshuaAC")]
 [assembly: MelonGame("Hinterland", "TheLongDark")]

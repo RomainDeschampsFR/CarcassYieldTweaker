@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace UseableMeatMod
+namespace CarcassYieldTweaker
 {
     public class Implementation : MelonMod
     {
