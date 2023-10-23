@@ -1,5 +1,5 @@
 # Carcass Yield Tweaker
-* Allows you to change the amount of available Meat & Guts upon killing any animal in The Long Dark.
+* Allows you to change the amount of available Meat, Guts & furs upon killing any animal in The Long Dark.
 * Allows you to change the size of quartering bags and the overall quartering waste value
 * Thanks to JoshuaAC the original creator of this mod (UseableMeatMod).
 

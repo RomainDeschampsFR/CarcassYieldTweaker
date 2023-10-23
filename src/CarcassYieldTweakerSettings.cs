@@ -49,6 +49,15 @@ namespace CarcassYieldTweaker
                     this.CougarGutSlider = (int)1f;
                     this.CougarQuarterSlider = 2.5f;
                     this.QuarterWasteMultipler = 2f;
+
+                    this.RabbitHideSlider = (int)1f;
+                    this.PtarmiganHideSlider = (int)4f;
+                    this.BearHideSlider = (int)1f;
+                    this.StagHideSlider = (int)1f;
+                    this.DoeHideSlider = (int)1f;
+                    this.WolfHideSlider = (int)1f;
+                    this.MooseHideSlider = (int)1f;
+                    this.CougarHideSlider = (int)1f;
                     break;
                 case 1:
                     //Meat values are based on data from canadian encyclopedia (see DATA.xlsx)
@@ -82,6 +91,15 @@ namespace CarcassYieldTweaker
                     this.CougarGutSlider = (int)6f;
                     this.CougarQuarterSlider = 18f;
                     this.QuarterWasteMultipler = 1.2f;
+
+                    this.RabbitHideSlider = (int)1f;
+                    this.PtarmiganHideSlider = (int)4f;
+                    this.BearHideSlider = (int)1f;
+                    this.StagHideSlider = (int)1f;
+                    this.DoeHideSlider = (int)1f;
+                    this.WolfHideSlider = (int)1f;
+                    this.MooseHideSlider = (int)1f;
+                    this.CougarHideSlider = (int)1f;
                     break;
                 case 2:
                     this.RabbitSliderMax = 1.5f;//Realistic unchanged
@@ -114,6 +132,15 @@ namespace CarcassYieldTweaker
                     this.CougarGutSlider = (int)5f;//Arbitrary value
                     this.CougarQuarterSlider = 7f; //Arbitrary value
                     this.QuarterWasteMultipler = 1.2f;
+
+                    this.RabbitHideSlider = (int)1f;
+                    this.PtarmiganHideSlider = (int)4f;
+                    this.BearHideSlider = (int)1f;
+                    this.StagHideSlider = (int)1f;
+                    this.DoeHideSlider = (int)1f;
+                    this.WolfHideSlider = (int)1f;
+                    this.MooseHideSlider = (int)1f;
+                    this.CougarHideSlider = (int)1f;
                     break;
 
             }
@@ -141,6 +168,11 @@ namespace CarcassYieldTweaker
         [Slider(0.75f, 5f)]
         public float RabbitSliderMin = 0.75f;
 
+        [Name("Hide Count")]
+        [Description("Change The Amount Of Hides To Harvest Upon Killing A Rabbit. Vanilla Value is 1")]
+        [Slider(1f, 10f)]
+        public int RabbitHideSlider = 1;
+
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Rabbit. Vanilla Value is 1")]
         [Slider(1f, 10f)]
@@ -157,6 +189,11 @@ namespace CarcassYieldTweaker
         [Slider(0.75f, 5f)]
         public float PtarmiganSliderMin = 0.75f;
 
+        [Name("Hide Count")]
+        [Description("Change The Amount Of Hides To Harvest Upon Killing A Ptarmigan. Vanilla Value is 4")]
+        [Slider(1f, 10f)]
+        public int PtarmiganHideSlider = 4;
+
         [Section("Bear")]
         [Name("Maximum Meat (Kg)")]
         [Description("Change The Maximum Amount Of Usuable Meat Upon Killing A Bear. Vanilla Value is 40")]
@@ -167,6 +204,11 @@ namespace CarcassYieldTweaker
         [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Bear. Vanilla Value is 25")]
         [Slider(1f, 300f)]
         public int BearSliderMin = 25;
+
+        [Name("Hide Count")]
+        [Description("Change The Amount Of Hides To Harvest Upon Killing A Bear. Vanilla Value is 1")]
+        [Slider(1f, 10f)]
+        public int BearHideSlider = 1;
 
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Bear. Vanilla Value is 10")]
@@ -189,6 +231,11 @@ namespace CarcassYieldTweaker
         [Slider(1f, 300f)]
         public int StagSliderMin = 11;
 
+        [Name("Hide Count")]
+        [Description("Change The Amount Of Hides To Harvest Upon Killing A Stag. Vanilla Value is 1")]
+        [Slider(1f, 10f)]
+        public int StagHideSlider = 1;
+
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Stag. Vanilla Value is 2")]
         [Slider(1f, 50f)]
@@ -209,6 +256,11 @@ namespace CarcassYieldTweaker
         [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Doe. Vanilla Value is 7")]
         [Slider(1f, 300f)]
         public int DoeSliderMin = 7;
+
+        [Name("Hide Count")]
+        [Description("Change The Amount Of Hides To Harvest Upon Killing A Doe. Vanilla Value is 1")]
+        [Slider(1f, 10f)]
+        public int DoeHideSlider = 1;
 
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Doe. Vanilla Value is 2")]
@@ -231,6 +283,11 @@ namespace CarcassYieldTweaker
         [Slider(1f, 300f)]
         public int WolfSliderMin = 3;
 
+        [Name("Hide Count")]
+        [Description("Change The Amount Of Hides To Harvest Upon Killing A Wolf. Vanilla Value is 1")]
+        [Slider(1f, 10f)]
+        public int WolfHideSlider = 1;
+
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Wolf. Vanilla Value is 2")]
         [Slider(1f, 50f)]
@@ -252,6 +309,11 @@ namespace CarcassYieldTweaker
         [Slider(1f, 300f)]
         public int MooseSliderMin = 30;
 
+        [Name("Hide Count")]
+        [Description("Change The Amount Of Hides To Harvest Upon Killing A Moose. Vanilla Value is 1")]
+        [Slider(1f, 10f)]
+        public int MooseHideSlider = 1;
+
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Moose. Vanilla Value is 12")]
         [Slider(1f, 50f)]
@@ -272,6 +334,11 @@ namespace CarcassYieldTweaker
         [Description("Change The Minimum Amount Of Usuable Meat Upon Killing A Cougar. Vanilla Value is ?")]
         [Slider(1f, 300f)]
         public int CougarSliderMin = 1;
+
+        [Name("Hide Count")]
+        [Description("Change The Amount Of Hides To Harvest Upon Killing A Cougar. Vanilla Value is 1")]
+        [Slider(1f, 10f)]
+        public int CougarHideSlider = 1;
 
         [Name("Gut Count")]
         [Description("Change The Amount Of Guts To Harvest Upon Killing A Cougar. Vanilla Value is ?")]

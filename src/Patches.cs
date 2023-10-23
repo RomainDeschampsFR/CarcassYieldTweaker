@@ -50,6 +50,38 @@
                 }
                 if (__instance.name.Contains("WILDLIFE_Rabbit"))
                 {
+                    __instance.m_HideAvailableUnits = Settings.options.RabbitHideSlider;
+                }
+                if (__instance.name.Contains("WILDLIFE_Ptarmigan"))
+                {
+                    __instance.m_HideAvailableUnits = Settings.options.RabbitHideSlider;
+                }
+                if (__instance.name.Contains("WILDLIFE_Bear"))
+                {
+                    __instance.m_HideAvailableUnits = Settings.options.BearHideSlider;
+                }
+                if (__instance.name.Contains("WILDLIFE_Stag"))
+                {
+                    __instance.m_HideAvailableUnits = Settings.options.StagHideSlider;
+                }
+                if (__instance.name.Contains("WILDLIFE_Doe"))
+                {
+                    __instance.m_HideAvailableUnits = Settings.options.DoeHideSlider;
+                }
+                if (__instance.name.Contains("WILDLIFE_Wolf"))
+                {
+                    __instance.m_HideAvailableUnits = Settings.options.WolfHideSlider;
+                }
+                if (__instance.name.Contains("WILDLIFE_Moose"))
+                {
+                    __instance.m_HideAvailableUnits = Settings.options.MooseHideSlider;
+                }
+                if (__instance.name.Contains("WILDLIFE_Cougar"))
+                {
+                    __instance.m_HideAvailableUnits = Settings.options.CougarHideSlider;
+                }
+                if (__instance.name.Contains("WILDLIFE_Rabbit"))
+                {
                     __instance.m_GutAvailableUnits = Settings.options.RabbitGutSlider;
                 }
                 if (__instance.name.Contains("WILDLIFE_Bear"))
