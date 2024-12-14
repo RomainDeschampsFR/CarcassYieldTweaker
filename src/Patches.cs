@@ -1,4 +1,6 @@
-﻿namespace CarcassYieldTweaker
+﻿using Il2CppTLD.IntBackedUnit;
+
+namespace CarcassYieldTweaker
 {
     class Patches
     {
@@ -10,43 +12,43 @@
             {
                 if (__instance.name.Contains("WILDLIFE_Rabbit"))
                 {
-                    __instance.m_MeatAvailableMaxKG = Settings.settings.RabbitSliderMax;
-                    __instance.m_MeatAvailableMinKG = Settings.settings.RabbitSliderMin;
+                    __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.RabbitSliderMax);
+                    __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.RabbitSliderMin);
                 }
                 if (__instance.name.Contains("WILDLIFE_Ptarmigan"))
                 {
-                    __instance.m_MeatAvailableMaxKG = Settings.settings.PtarmiganSliderMax;
-                    __instance.m_MeatAvailableMinKG = Settings.settings.PtarmiganSliderMin;
+                    __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.PtarmiganSliderMax);
+                    __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.PtarmiganSliderMin);
                 }
                 if (__instance.name.Contains("WILDLIFE_Bear"))
                 {
-                    __instance.m_MeatAvailableMaxKG = Settings.settings.BearSliderMax;
-                    __instance.m_MeatAvailableMinKG = Settings.settings.BearSliderMin;
+                    __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.BearSliderMax);
+                    __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.BearSliderMin);
                 }
                 if (__instance.name.Contains("WILDLIFE_Stag"))
                 {
-                    __instance.m_MeatAvailableMaxKG = Settings.settings.StagSliderMax;
-                    __instance.m_MeatAvailableMinKG = Settings.settings.StagSliderMin;
+                    __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.StagSliderMax);
+                    __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.StagSliderMin);
                 }
                 if (__instance.name.Contains("WILDLIFE_Doe"))
                 {
-                    __instance.m_MeatAvailableMaxKG = Settings.settings.DoeSliderMax;
-                    __instance.m_MeatAvailableMinKG = Settings.settings.DoeSliderMin;
+                    __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.DoeSliderMax);
+                    __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.DoeSliderMin);
                 }
                 if (__instance.name.Contains("WILDLIFE_Wolf"))
                 {
-                    __instance.m_MeatAvailableMaxKG = Settings.settings.WolfSliderMax;
-                    __instance.m_MeatAvailableMinKG = Settings.settings.WolfSliderMin;
+                    __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.WolfSliderMax);
+                    __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.WolfSliderMin);
                 }
                 if (__instance.name.Contains("WILDLIFE_Moose"))
                 {
-                    __instance.m_MeatAvailableMaxKG = Settings.settings.MooseSliderMax;
-                    __instance.m_MeatAvailableMinKG = Settings.settings.MooseSliderMin;
+                    __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.MooseSliderMax);
+                    __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.MooseSliderMin);
                 }
                 if (__instance.name.Contains("WILDLIFE_Cougar"))
                 {
-                    __instance.m_MeatAvailableMaxKG = Settings.settings.CougarSliderMax;
-                    __instance.m_MeatAvailableMinKG = Settings.settings.CougarSliderMin;
+                    __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.CougarSliderMax);
+                    __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.CougarSliderMin);
                 }
                 if (__instance.name.Contains("WILDLIFE_Rabbit"))
                 {
@@ -110,27 +112,27 @@
                 }
                 if (__instance.name.Contains("WILDLIFE_Bear"))
                 {
-                    __instance.m_QuarterBagMeatCapacityKG = Settings.settings.BearQuarterSlider;
+                    __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.BearQuarterSlider);
                 }
                 if (__instance.name.Contains("WILDLIFE_Stag"))
                 {
-                    __instance.m_QuarterBagMeatCapacityKG = Settings.settings.StagQuarterSlider;
+                    __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.StagQuarterSlider);
                 }
                 if (__instance.name.Contains("WILDLIFE_Doe"))
                 {
-                    __instance.m_QuarterBagMeatCapacityKG = Settings.settings.DoeQuarterSlider;
+                    __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.DoeQuarterSlider);
                 }
                 if (__instance.name.Contains("WILDLIFE_Wolf"))
                 {
-                    __instance.m_QuarterBagMeatCapacityKG = Settings.settings.WolfQuarterSlider;
+                    __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.WolfQuarterSlider);
                 }
                 if (__instance.name.Contains("WILDLIFE_Moose"))
                 {
-                    __instance.m_QuarterBagMeatCapacityKG = Settings.settings.MooseQuarterSlider;
+                    __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.MooseQuarterSlider);
                 }
                 if (__instance.name.Contains("WILDLIFE_Cougar"))
                 {
-                    __instance.m_QuarterBagMeatCapacityKG = Settings.settings.CougarQuarterSlider;
+                    __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.CougarQuarterSlider);
                 }
                 __instance.m_QuarterBagWasteMultiplier = Settings.settings.QuarterWasteMultipler;
             }
