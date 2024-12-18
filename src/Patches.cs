@@ -1,8 +1,13 @@
 ﻿using HarmonyLib;
 using Il2Cpp;
+using Il2CppTLD.Gameplay;
 using Il2CppTLD.IntBackedUnit;
 using MelonLoader;
 using System;
+using System.Collections.Generic;
+using MonoMod.Cil;
+using System.Reflection.Emit;
+
 
 namespace CarcassYieldTweaker
 {
@@ -10,6 +15,7 @@ namespace CarcassYieldTweaker
     {
         public static bool pendingChange = false;
         public static string lastItemChanged = null;
+        public static float savedHarvestTime = 0f; // Holds the last known harvest time before switching tabs
     }
 
     public static class Patches
@@ -40,7 +46,6 @@ namespace CarcassYieldTweaker
                     break;
             }
 
-            // Round the multiplier from settings to a single decimal place
             return (float)Math.Round(rawMultiplier, 1);
         }
 
@@ -105,7 +110,44 @@ namespace CarcassYieldTweaker
             }
         }
 
-        // Patch for Panel_BodyHarvest.Enable(bool, BodyHarvest, bool, ComingFromScreenCategory)
+        [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.OnTabQuarterSelected))]
+        public class Patch_OnTabQuarterSelected
+        {
+            static void Postfix(Il2Cpp.Panel_BodyHarvest __instance)
+            {
+                if (__instance == null) return;
+
+                try
+                {
+                    HarvestState.savedHarvestTime = __instance.m_HarvestTimeMinutes;
+                    LogDebugMessage($"OnTabQuarterSelected called. Saved harvest time: {HarvestState.savedHarvestTime:F2}");
+                }
+                catch (Exception ex)
+                {
+                    MelonLogger.Error($"Error in Patch_OnTabQuarterSelected: {ex}");
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.OnTabHarvestSelected))]
+        public class Patch_OnTabHarvestSelected
+        {
+            static void Postfix(Il2Cpp.Panel_BodyHarvest __instance)
+            {
+                if (__instance == null) return;
+
+                try
+                {
+                    __instance.m_HarvestTimeMinutes = HarvestState.savedHarvestTime;
+                    LogDebugMessage($"OnTabHarvestSelected called. Restored harvest time: {HarvestState.savedHarvestTime:F2}");
+                }
+                catch (Exception ex)
+                {
+                    MelonLogger.Error($"Error in Patch_OnTabHarvestSelected: {ex}");
+                }
+            }
+        }
+
         [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), "Enable", new Type[] { typeof(bool), typeof(Il2Cpp.BodyHarvest), typeof(bool), typeof(Il2Cpp.ComingFromScreenCategory) })]
         public class Patch_Panel_Body_Harvest_Enable_Complex
         {
@@ -113,15 +155,21 @@ namespace CarcassYieldTweaker
             {
                 if (__instance == null) return;
 
-                if (!enable)
+                try
                 {
-                    __instance.m_HarvestTimeMinutes = 0f;
-                    LogDebugMessage("Panel_BodyHarvest closed (complex). Harvest time reset to 0.");
+                    if (!enable)
+                    {
+                        HarvestState.savedHarvestTime = 0f;
+                        LogDebugMessage("Panel_BodyHarvest closed. Harvest time cleared.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MelonLogger.Error($"Error in Patch_Panel_Body_Harvest_Enable_Complex: {ex}");
                 }
             }
         }
 
-        // Patch GetHarvestDurationMinutes to apply multiplier only when there's a pending change
         [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.GetHarvestDurationMinutes))]
         public class Patch_GetHarvestDurationMinutes
         {
@@ -152,15 +200,15 @@ namespace CarcassYieldTweaker
                 }
                 catch (Exception ex)
                 {
-                    MelonLogger.Error($"[CarcassYieldTweaker] Error in Patch_GetHarvestDurationMinutes: {ex}");
+                    MelonLogger.Error($"Error in Patch_GetHarvestDurationMinutes: {ex}");
                 }
             }
         }
 
 
 
-        //Quantity Patching
-        [HarmonyPatch(typeof(Il2Cpp.BodyHarvest), nameof(BodyHarvest.InitializeResourcesAndConditions))]
+//Quantity Patching
+[HarmonyPatch(typeof(Il2Cpp.BodyHarvest), nameof(BodyHarvest.InitializeResourcesAndConditions))]
         internal class BodyHarvest_InitializeResourcesAndConditions
         {
             private static void Prefix(Il2Cpp.BodyHarvest __instance)

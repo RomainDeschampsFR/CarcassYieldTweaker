@@ -334,6 +334,11 @@ namespace CarcassYieldTweaker
             [Slider(0.1f, 2)]
             public float MeatTimeMultiplier = 1f;
 
+            [Name("Frozen Meat")]
+            [Description("Change Frozen Meat harvest time multiplier. Vanilla value is 1")]
+            [Slider(0.1f, 2)]
+            public float FrozenMeatTimeMultiplier = 1f;
+
             [Name("Hide")]
             [Description("Change Hide/Feathers harvest time multiplier. Vanilla value is 1")]
             [Slider(0.1f, 2)]
@@ -346,7 +351,7 @@ namespace CarcassYieldTweaker
 
         [Section("Harvest Times (minutes)")]
 
-        [Name("Doe Quarters")]
+            [Name("Doe Quarters")]
             [Description("Change how many minutes to quarter a Doe. Vanilla value is 60")]
             [Slider(1, 180)]
             public int DoeQuarterDurationMinutesSlider = 60;
