@@ -327,27 +327,24 @@ namespace CarcassYieldTweaker
             }
         }
 
+        [Section("Harvest Times Multipliers")]
+
+            [Name("Meat")]
+            [Description("Change Meat harvest time multiplier. Vanilla value is 1")]
+            [Slider(0.1f, 2)]
+            public float MeatTimeMultiplier = 1f;
+
+            [Name("Hide")]
+            [Description("Change Hide/Feathers harvest time multiplier. Vanilla value is 1")]
+            [Slider(0.1f, 2)]
+            public float HideTimeMultiplier = 1f;
+
+            [Name("Gut")]
+            [Description("Change Gut harvest time multiplier. Vanilla value is 1")]
+            [Slider(0.1f, 2)]
+            public float GutTimeMultiplier = 1f;
+
         [Section("Harvest Times (minutes)")]
-
-            [Name("Meat (per kg)")]
-            [Description("Change how many minutes to harvest 1 kg of meat. Vanilla value is 10 min per kg.")]
-            [Slider(1, 30)]
-            public int HarvestMeatMinutesPerKG = 10;
-
-            [Name("Frozen Meat (per kg)")]
-            [Description("Change how many minutes to harvest 1 kg of frozen meat. Vanilla value is 20 min per kg.")]
-            [Slider(1, 60)]
-            public int HarvestFrozenMeatMinutesPerKG = 20;
-
-            [Name("Hides/Feathers (per unit)")]
-            [Description("Change how many minutes to harvest 1 hide. Vanilla value is 30 min per unit.")]
-            [Slider(1, 60)]
-            public int HarvestHideMinutesPerUnit = 30;
-
-            [Name("Guts (per unit)")]
-            [Description("Change how many minutes to harvest 1 gut. Vanilla value is 20 min per unit.")]
-            [Slider(1, 60)]
-            public int HarvestGutMinutesPerUnit = 20;
 
         [Name("Doe Quarters")]
             [Description("Change how many minutes to quarter a Doe. Vanilla value is 60")]
