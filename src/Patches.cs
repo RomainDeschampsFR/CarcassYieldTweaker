@@ -16,6 +16,7 @@ namespace CarcassYieldTweaker
         public static bool pendingChange = false;
         public static string lastItemChanged = null;
         public static float savedHarvestTime = 0f; // Holds the last known harvest time before switching tabs
+        public static float lastUnmodifiedTime = 0f; // NEW: Holds the last unmodified harvest time
     }
 
     public static class Patches
@@ -148,6 +149,30 @@ namespace CarcassYieldTweaker
             }
         }
 
+        [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.OnToolNext))]
+        public class Patch_OnToolNext
+        {
+            static void Postfix()
+            {
+                HarvestState.pendingChange = true;
+                HarvestState.lastItemChanged = "ToolSwitch";
+                MelonLogger.Msg("[CarcassYieldTweaker:Debug] Tool switched to next tool.");
+            }
+        }
+
+        [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.OnToolPrev))]
+        public class Patch_OnToolPrev
+        {
+            static void Postfix()
+            {
+                HarvestState.pendingChange = true;
+                HarvestState.lastItemChanged = "ToolSwitch";
+                MelonLogger.Msg("[CarcassYieldTweaker:Debug] Tool switched to previous tool.");
+            }
+        }
+
+
+
         [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), "Enable", new Type[] { typeof(bool), typeof(Il2Cpp.BodyHarvest), typeof(bool), typeof(Il2Cpp.ComingFromScreenCategory) })]
         public class Patch_Panel_Body_Harvest_Enable_Complex
         {
@@ -179,8 +204,28 @@ namespace CarcassYieldTweaker
 
                 try
                 {
-                    if (HarvestState.pendingChange && !string.IsNullOrEmpty(HarvestState.lastItemChanged))
+                    // Store the new unmodified time for future ratio calculations
+                    float newUnmodifiedTime = __result;
+
+                    // Check if the last change was a tool switch
+                    if (HarvestState.pendingChange && HarvestState.lastItemChanged == "ToolSwitch")
                     {
+                        if (HarvestState.lastUnmodifiedTime > 0) // Check if we have a previous unmodified time to compare against
+                        {
+                            float ratio = newUnmodifiedTime / HarvestState.lastUnmodifiedTime;
+                            float adjustedTime = __instance.m_HarvestTimeMinutes * ratio;
+
+                            __result = adjustedTime;
+                            __instance.m_HarvestTimeMinutes = adjustedTime; // Update the instance variable
+
+                            LogDebugMessage($"Tool switch detected. Ratio applied: {ratio:F2}. New time: {adjustedTime:F2}");
+                        }
+
+                        HarvestState.lastUnmodifiedTime = newUnmodifiedTime; // Update for next comparison
+                    }
+                    else if (HarvestState.pendingChange && !string.IsNullOrEmpty(HarvestState.lastItemChanged))
+                    {
+                        // If the change was an item change (Meat, Gut, Hide), use the item-based multiplier
                         float multiplier = GetRoundedMultiplier(HarvestState.lastItemChanged);
                         float adjusted = __result * multiplier;
 
@@ -188,15 +233,18 @@ namespace CarcassYieldTweaker
 
                         LogDebugMessage($"[{HarvestState.lastItemChanged}] Harvest time adjusted: {__result:F2} -> {adjusted:F2} (x{multiplier:F1})");
 
-                        HarvestState.pendingChange = false;
-                        HarvestState.lastItemChanged = null;
-
                         __result = adjusted;
+
+                        HarvestState.lastUnmodifiedTime = newUnmodifiedTime; // Update for next comparison
                     }
                     else if (__instance.m_HarvestTimeMinutes > 0f)
                     {
                         __result = __instance.m_HarvestTimeMinutes;
                     }
+
+                    // Reset pending change and last item changed
+                    HarvestState.pendingChange = false;
+                    HarvestState.lastItemChanged = null;
                 }
                 catch (Exception ex)
                 {
@@ -207,8 +255,8 @@ namespace CarcassYieldTweaker
 
 
 
-//Quantity Patching
-[HarmonyPatch(typeof(Il2Cpp.BodyHarvest), nameof(BodyHarvest.InitializeResourcesAndConditions))]
+        //Quantity Patching
+        [HarmonyPatch(typeof(Il2Cpp.BodyHarvest), nameof(BodyHarvest.InitializeResourcesAndConditions))]
         internal class BodyHarvest_InitializeResourcesAndConditions
         {
             private static void Prefix(Il2Cpp.BodyHarvest __instance)
@@ -219,7 +267,7 @@ namespace CarcassYieldTweaker
                 {
                     if (__instance.name.StartsWith("WILDLIFE_Rabbit"))
                     {
-                     
+
                         //Todo - Add "[Animal] was plumped up" or "slimmed down" messages to MelonLog
                         __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.RabbitSliderMin);
                         __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.RabbitSliderMax);
