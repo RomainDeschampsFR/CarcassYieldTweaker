@@ -375,12 +375,12 @@ namespace CarcassYieldTweaker
 
         [Section("Global Harvest Time (Multipliers) ")]
 
-        [Name("Meat")]
+        [Name("Meat (Thawed Carcass")]
         [Description("Global Meat harvest time multiplier. Vanilla value is 1")]
         [Slider(0.1f, 2)]
         public float GlobalMeatTimeSlider = 1f;
 
-        [Name("Frozen Meat")]
+        [Name("Meat (Frozen Carcass)")]
         [Description("Global Frozen Meat harvest time multiplier. Vanilla value is 1")]
         [Slider(0.1f, 2)]
         public float GlobalFrozenMeatTimeSlider = 1f;
@@ -419,12 +419,12 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Rabbit. Vanilla value is 1")]
-        [Slider(1, 10)]
+        [Slider(0, 10)]
         public int HideSliderRabbit = VanillaSettings.VanillaHideSliderRabbit;
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Rabbit. Vanilla value is 1")]
-        [Slider(1, 10)]
+        [Slider(0, 10)]
         public int GutSliderRabbit = VanillaSettings.VanillaGutSliderRabbit;
 
         [Name("Hide Harvest Time")]
@@ -477,7 +477,7 @@ namespace CarcassYieldTweaker
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Doe. Vanilla value is 2")]
-        [Slider(0, 50)]
+        [Slider(0, 20)]
         public int GutSliderDoe = VanillaSettings.VanillaGutSliderDoe;
 
         [Name("Quarter Size (Kg)")]
@@ -516,12 +516,12 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Stag. Vanilla value is 1")]
-        [Slider(1, 10)]
+        [Slider(0, 10)]
         public int HideSliderStag = VanillaSettings.VanillaHideSliderStag;
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Stag. Vanilla value is 2")]
-        [Slider(1, 50)]
+        [Slider(1, 20)]
         public int GutSliderStag = VanillaSettings.VanillaGutSliderStag;
 
         [Name("Quarter Size (Kg)")]
@@ -560,12 +560,12 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Moose. Vanilla value is 1")]
-        [Slider(1, 10)]
+        [Slider(0, 10)]
         public int HideSliderMoose = VanillaSettings.VanillaHideSliderMoose;
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Moose. Vanilla value is 12")]
-        [Slider(1, 50)]
+        [Slider(1, 48)]
         public int GutSliderMoose = VanillaSettings.VanillaGutSliderMoose;
 
         [Name("Quarter Size (Kg)")]
@@ -573,15 +573,15 @@ namespace CarcassYieldTweaker
         [Slider(1f, 50f)]
         public float QuarterSizeSliderMoose = VanillaSettings.VanillaQuarterSizeSliderMoose;
 
-        [Name("Hide Harvest Time")]
-        [Description("Moose Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
-        public float HideTimeSliderMoose = VanillaSettings.VanillaHideTimeSliderMoose;
-
         [Name("Fat to Meat Percentage (%)")]
         [Description("Fat to meat percentage for a Moose. Vanilla value is 15%")]
         [Slider(0, 40)]
         public int FatToMeatPercentSliderMoose = VanillaSettings.VanillaFatToMeatPercentSliderMoose;
+
+        [Name("Hide Harvest Time")]
+        [Description("Moose Hide harvest time multiplier. Vanilla value is 1")]
+        [Slider(0.1f, 2.0f)]
+        public float HideTimeSliderMoose = VanillaSettings.VanillaHideTimeSliderMoose;
 
         [Name("Quarter Time")]
         [Description("Minutes to quarter a Moose. Vanilla value is 120")]
@@ -604,12 +604,12 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Wolf. Vanilla value is 1")]
-        [Slider(1, 10)]
+        [Slider(0, 10)]
         public int HideSliderWolf = VanillaSettings.VanillaHideSliderWolf;
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Wolf. Vanilla value is 2")]
-        [Slider(1, 50)]
+        [Slider(1, 20)]
         public int GutSliderWolf = VanillaSettings.VanillaGutSliderWolf;
 
         [Name("Quarter Size (Kg)")]
@@ -648,12 +648,12 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed TimberWolf. Vanilla value is 1")]
-        [Slider(1, 10)]
+        [Slider(0, 10)]
         public int HideSliderTimberWolf = VanillaSettings.VanillaHideSliderTimberWolf;
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed TimberWolf. Vanilla value is 2")]
-        [Slider(1, 50)]
+        [Slider(1, 20)]
         public int GutSliderTimberWolf = VanillaSettings.VanillaGutSliderTimberWolf;
 
         [Name("Quarter Size (Kg)")]
@@ -682,12 +682,12 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Poisoned Wolf. Vanilla value is 1")]
-        [Slider(1, 10)]
+        [Slider(0, 10)]
         public int HideSliderPoisonedWolf = VanillaSettings.VanillaHideSliderPoisonedWolf;
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Poisoned Wolf. Vanilla value is 2")]
-        [Slider(1, 50)]
+        [Slider(1, 20)]
         public int GutSliderPoisonedWolf = VanillaSettings.VanillaGutSliderPoisonedWolf;
 
         [Name("Hide Harvest Time")]
@@ -711,12 +711,12 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Bear. Vanilla value is 1")]
-        [Slider(1, 10)]
+        [Slider(0, 10)]
         public int HideSliderBear = VanillaSettings.VanillaHideSliderBear;
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Bear. Vanilla value is 10")]
-        [Slider(1, 50)]
+        [Slider(1, 40)]
         public int GutSliderBear = VanillaSettings.VanillaGutSliderBear;
 
         [Name("Quarter Size (Kg)")]
