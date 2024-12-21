@@ -375,7 +375,7 @@ namespace CarcassYieldTweaker
 
         [Section("Global Harvest Time (Multipliers) ")]
 
-        [Name("Meat (Thawed Carcass")]
+        [Name("Meat (Thawed Carcass)")]
         [Description("Global Meat harvest time multiplier. Vanilla value is 1")]
         [Slider(0.1f, 2)]
         public float GlobalMeatTimeSlider = 1f;
