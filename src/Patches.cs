@@ -30,9 +30,7 @@ namespace CarcassYieldTweaker
         public static class Time_Patches
 
         {
-
-            private static bool debug_mode = true; // Set to false to disable debug logging
-
+            private static bool debug_mode = false; // Set to false to disable debug logging
 
             [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.GetHarvestDurationMinutes))]
             public class Patch_Panel_BodyHarvest_GetHarvestDurationMinutes
@@ -163,12 +161,12 @@ namespace CarcassYieldTweaker
                         //    rawMultiplier = Settings.settings.GutTimeSliderTimberWolf;
                         break;
 
-                    //case "WILDLIFE_PoisonedWolf":
-                    //    if (itemType == "Hide")
-                    //        rawMultiplier = Settings.settings.MeatTimeSliderPoisonedWolf;
-                    //    else if (itemType == "Gut")
-                    //        rawMultiplier = Settings.settings.GutTimeSliderPoisonedWolf;
-                    //    break;
+                    case "WILDLIFE_StarvingWolf":
+                        if (itemType == "Hide")
+                            rawMultiplier = Settings.settings.HideTimeSliderPoisonedWolf;
+                        //else if (itemType == "Gut")
+                        //    rawMultiplier = Settings.settings.GutTimeSliderPoisonedWolf;
+                        break;
 
                     case "WILDLIFE_Bear":
                         if (itemType == "Hide")

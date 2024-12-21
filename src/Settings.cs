@@ -841,6 +841,5 @@ namespace CarcassYieldTweaker
         [Slider(1, 180)]
         public int QuarterDurationMinutesSliderCougar = VanillaSettings.VanillaQuarterDurationMinutesSliderCougar;
 
-
     }
 }
