@@ -2,10 +2,10 @@
 
 Features:
 * Change amount of available Meat, Guts & furs upon killing any animal in The Long Dark.
-* Allows you to change the size of quartering bags and the overall quartering waste value
-* Allsws you to change the 
-* Allows you to change the time it takes to harvest meat and guts globally using a multiplier
-* Allows you to change the time it take to harvest hides and feathers per animal
+* Change the size of quartering bags and the overall quartering waste value
+* Change Fat to Meat Ratio
+* Change the time it takes to harvest meat and guts globally using a multiplier
+* Change the time it take to harvest hides and feathers per animal
 
 * Thanks to JoshuaAC the original creator of this mod (UseableMeatMod).
 
