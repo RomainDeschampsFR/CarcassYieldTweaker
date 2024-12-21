@@ -377,9 +377,6 @@ namespace CarcassYieldTweaker
                             __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.MeatSliderMaxRabbit);
                             __instance.m_HideAvailableUnits = Settings.settings.HideSliderRabbit;
                             __instance.m_GutAvailableUnits = Settings.settings.GutSliderRabbit;
-                            
-
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.RabbitDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Ptarmigan"))
@@ -387,7 +384,6 @@ namespace CarcassYieldTweaker
                             __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.MeatSliderMinPtarmigan);
                             __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.MeatSliderMaxPtarmigan);
                             __instance.m_HideAvailableUnits = Settings.settings.HideSliderPtarmigan;
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.PtarmiganDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Doe"))
@@ -399,7 +395,6 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderDoe);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderDoe;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderDoe / 100;
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.DoeDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Stag"))
@@ -411,7 +406,6 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderStag);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderStag;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderStag / 100;
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.StagDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Moose"))
@@ -423,7 +417,6 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderMoose);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderMoose;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderMoose / 100;
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.MooseDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Wolf"))
@@ -435,7 +428,6 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderWolf);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderWolf;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderWolf / 100;
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.WolfDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_TimberWolf"))
@@ -447,14 +439,12 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderTimberWolf);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderTimberWolf;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderTimberWolf / 100;
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.TimberWolfDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_StarvingWolf"))
                         {
                             __instance.m_HideAvailableUnits = Settings.settings.HideSliderPoisonedWolf;
                             __instance.m_GutAvailableUnits = Settings.settings.GutSliderPoisonedWolf;
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.PoisonedWolfDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Bear"))
@@ -466,7 +456,6 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderBear);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderBear;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderBear / 100;
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.BearDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Cougar"))
@@ -478,10 +467,9 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderCougar);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderCougar;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderCougar / 100;
-                            //__instance.m_DecayConditionPerHour = (Settings.settings.CougarDecayConditionPerDayPercentSlider / 100) / 24;
                         }
 
-                        __instance.m_QuarterBagWasteMultiplier = Settings.settings.QuarterWasteMultipler;
+                        __instance.m_QuarterBagWasteMultiplier = Settings.settings.QuarterWasteSlider;
                     }
                     catch (Exception ex)
                     {

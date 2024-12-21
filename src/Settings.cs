@@ -83,6 +83,11 @@ namespace CarcassYieldTweaker
         public static float VanillaHideTimeSliderTimberWolf = 1.0f;
         public static int VanillaQuarterDurationMinutesSliderTimberWolf = 60;
 
+        // Poisoned Wolf (DLC)
+        public static int VanillaHideSliderPoisonedWolf = 1;
+        public static int VanillaGutSliderPoisonedWolf = 2;
+        public static float VanillaHideTimeSliderPoisonedWolf = 1.0f;
+
         // Bear
         public static float VanillaMeatSliderMinBear = 25f;
         public static float VanillaMeatSliderMaxBear = 40f;
@@ -103,15 +108,8 @@ namespace CarcassYieldTweaker
         public static float VanillaHideTimeSliderCougar = 1.0f;
         public static int VanillaQuarterDurationMinutesSliderCougar = 120;
 
-        // Poisoned Wolf (DLC)
-        public static int VanillaHideSliderPoisonedWolf = 1;
-        public static int VanillaGutSliderPoisonedWolf = 2;
-        public static float VanillaHideTimeSliderPoisonedWolf = 1.0f;
-
-        
-
         // Quartering Waste Multiplier
-        public static float VanillaQuarterWasteMultiplier = 1.0f;
+        public static float VanillaQuarterWasteMultiplier = 2.0f;
     }
 
 
@@ -133,6 +131,7 @@ namespace CarcassYieldTweaker
             {
                 case 0:
                     // Set Vanilla Values from the VanillaSettings class
+
                     // Rabbit
                     this.MeatSliderMinRabbit = VanillaSettings.VanillaMeatSliderMinRabbit;
                     this.MeatSliderMaxRabbit = VanillaSettings.VanillaMeatSliderMaxRabbit;
@@ -151,49 +150,83 @@ namespace CarcassYieldTweaker
                     this.MeatSliderMaxDoe = VanillaSettings.VanillaMeatSliderMaxDoe;
                     this.HideSliderDoe = VanillaSettings.VanillaHideSliderDoe;
                     this.GutSliderDoe = VanillaSettings.VanillaGutSliderDoe;
+                    this.QuarterSizeSliderDoe = VanillaSettings.VanillaQuarterSizeSliderDoe;
+                    this.FatToMeatPercentSliderDoe = VanillaSettings.VanillaFatToMeatPercentSliderDoe;
                     this.HideTimeSliderDoe = VanillaSettings.VanillaHideTimeSliderDoe;
+                    this.QuarterDurationMinutesSliderDoe = VanillaSettings.VanillaQuarterDurationMinutesSliderDoe;
 
                     // Stag
                     this.MeatSliderMinStag = VanillaSettings.VanillaMeatSliderMinStag;
                     this.MeatSliderMaxStag = VanillaSettings.VanillaMeatSliderMaxStag;
                     this.HideSliderStag = VanillaSettings.VanillaHideSliderStag;
                     this.GutSliderStag = VanillaSettings.VanillaGutSliderStag;
+                    this.QuarterSizeSliderStag = VanillaSettings.VanillaQuarterSizeSliderStag;
+                    this.FatToMeatPercentSliderStag = VanillaSettings.VanillaFatToMeatPercentSliderStag;
                     this.HideTimeSliderStag = VanillaSettings.VanillaHideTimeSliderStag;
+                    this.QuarterDurationMinutesSliderStag = VanillaSettings.VanillaQuarterDurationMinutesSliderStag;
 
                     // Moose
                     this.MeatSliderMinMoose = VanillaSettings.VanillaMeatSliderMinMoose;
                     this.MeatSliderMaxMoose = VanillaSettings.VanillaMeatSliderMaxMoose;
                     this.HideSliderMoose = VanillaSettings.VanillaHideSliderMoose;
                     this.GutSliderMoose = VanillaSettings.VanillaGutSliderMoose;
+                    this.QuarterSizeSliderMoose = VanillaSettings.VanillaQuarterSizeSliderMoose;    
+                    this.FatToMeatPercentSliderMoose = VanillaSettings.VanillaFatToMeatPercentSliderMoose;
                     this.HideTimeSliderMoose = VanillaSettings.VanillaHideTimeSliderMoose;
+                    this.QuarterDurationMinutesSliderMoose = VanillaSettings.VanillaQuarterDurationMinutesSliderMoose;
 
                     // Wolf
                     this.MeatSliderMinWolf = VanillaSettings.VanillaMeatSliderMinWolf;
                     this.MeatSliderMaxWolf = VanillaSettings.VanillaMeatSliderMaxWolf;
                     this.HideSliderWolf = VanillaSettings.VanillaHideSliderWolf;
                     this.GutSliderWolf = VanillaSettings.VanillaGutSliderWolf;
+                    this.QuarterSizeSliderWolf = VanillaSettings.VanillaQuarterSizeSliderWolf;
+                    this.FatToMeatPercentSliderWolf = VanillaSettings.VanillaFatToMeatPercentSliderWolf;
                     this.HideTimeSliderWolf = VanillaSettings.VanillaHideTimeSliderWolf;
+                    this.QuarterDurationMinutesSliderWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderWolf;
+
 
                     // TimberWolf
                     this.MeatSliderMinTimberWolf = VanillaSettings.VanillaMeatSliderMinTimberWolf;
                     this.MeatSliderMaxTimberWolf = VanillaSettings.VanillaMeatSliderMaxTimberWolf;
                     this.HideSliderTimberWolf = VanillaSettings.VanillaHideSliderTimberWolf;
                     this.GutSliderTimberWolf = VanillaSettings.VanillaGutSliderTimberWolf;
+                    this.QuarterSizeSliderTimberWolf = VanillaSettings.VanillaQuarterSizeSliderTimberWolf;
+                    this.FatToMeatPercentSliderTimberWolf = VanillaSettings.VanillaFatToMeatPercentSliderTimberWolf;
                     this.HideTimeSliderTimberWolf = VanillaSettings.VanillaHideTimeSliderTimberWolf;
+                    this.QuarterDurationMinutesSliderTimberWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderTimberWolf;
+
+
+                    // Poisoned Wolf (DLC)
+                    this.HideSliderPoisonedWolf = VanillaSettings.VanillaHideSliderPoisonedWolf;
+                    this.GutSliderPoisonedWolf = VanillaSettings.VanillaGutSliderPoisonedWolf;
+                    this.HideTimeSliderPoisonedWolf = VanillaSettings.VanillaHideTimeSliderPoisonedWolf;
+
 
                     // Bear
                     this.MeatSliderMinBear = VanillaSettings.VanillaMeatSliderMinBear;
                     this.MeatSliderMaxBear = VanillaSettings.VanillaMeatSliderMaxBear;
                     this.HideSliderBear = VanillaSettings.VanillaHideSliderBear;
                     this.GutSliderBear = VanillaSettings.VanillaGutSliderBear;
+                    this.QuarterSizeSliderBear = VanillaSettings.VanillaQuarterSizeSliderBear;
+                    this.FatToMeatPercentSliderBear = VanillaSettings.VanillaFatToMeatPercentSliderBear;
                     this.HideTimeSliderBear = VanillaSettings.VanillaHideTimeSliderBear;
+                    this.QuarterDurationMinutesSliderBear = VanillaSettings.VanillaQuarterDurationMinutesSliderBear;
+
 
                     // Cougar
                     this.MeatSliderMinCougar = VanillaSettings.VanillaMeatSliderMinCougar;
                     this.MeatSliderMaxCougar = VanillaSettings.VanillaMeatSliderMaxCougar;
                     this.HideSliderCougar = VanillaSettings.VanillaHideSliderCougar;
                     this.GutSliderCougar = VanillaSettings.VanillaGutSliderCougar;
+                    this.QuarterSizeSliderCougar = VanillaSettings.VanillaQuarterSizeSliderCougar;
+                    this.FatToMeatPercentSliderCougar = VanillaSettings.VanillaFatToMeatPercentSliderCougar;
                     this.HideTimeSliderCougar = VanillaSettings.VanillaHideTimeSliderCougar;
+                    this.QuarterDurationMinutesSliderCougar = VanillaSettings.VanillaQuarterDurationMinutesSliderCougar;
+
+                    // Quarter Waste Multiplier
+                    this.QuarterWasteSlider = VanillaSettings.VanillaQuarterWasteMultiplier;
+
 
                     break;
 
@@ -205,11 +238,13 @@ namespace CarcassYieldTweaker
                     this.MeatSliderMaxRabbit = 1.5f;
                     this.HideSliderRabbit = 1;
                     this.GutSliderRabbit = 2;
+                    this.HideTimeSliderRabbit = 0.13f; // A rabbit can be skinned in less than a minute
 
                     // Ptarmigan (DLC)
                     this.MeatSliderMinPtarmigan = 0.43f;
                     this.MeatSliderMaxPtarmigan = 0.81f;
                     this.HideSliderPtarmigan = 4;
+                    this.HideTimeSliderPtarmigan = 0.25f; // A Ptarmigan can be plucked in less than 30 minutes
 
                     // Doe
                     this.MeatSliderMinDoe = 16f;
@@ -217,8 +252,9 @@ namespace CarcassYieldTweaker
                     this.HideSliderDoe = 1;
                     this.GutSliderDoe = 12;
                     this.QuarterSizeSliderDoe = 10f;
-                    this.QuarterDurationMinutesSliderDoe = 30;
                     this.FatToMeatPercentSliderDoe = 3; //Doe are very lean
+                    this.HideTimeSliderDoe = 0.75f; // Realistic time for processing a doe hide
+                    this.QuarterDurationMinutesSliderDoe = 30;
 
                     //// Stag
                     this.MeatSliderMinStag = 38f;
@@ -226,8 +262,9 @@ namespace CarcassYieldTweaker
                     this.HideSliderStag = 1;
                     this.GutSliderStag = 15;
                     this.QuarterSizeSliderStag = 15f;
-                    this.QuarterDurationMinutesSliderStag = 60;
                     this.FatToMeatPercentSliderStag = 4; // Stags have a bit more fat
+                    this.HideTimeSliderStag = 1.125f; // Realistic time for processing a stag hide
+                    this.QuarterDurationMinutesSliderStag = 60;
 
                     // Moose
                     this.MeatSliderMinMoose = 121f;
@@ -235,8 +272,9 @@ namespace CarcassYieldTweaker
                     this.HideSliderMoose = 1;
                     this.GutSliderMoose = 40;
                     this.QuarterSizeSliderMoose = 30f;
-                    this.QuarterDurationMinutesSliderMoose = 150;
                     this.FatToMeatPercentSliderMoose = 5;
+                    this.HideTimeSliderMoose = 2.25f; // Realistic time for processing a moose hide
+                    this.QuarterDurationMinutesSliderMoose = 150;
 
                     // Wolf
                     this.MeatSliderMinWolf = 7f;
@@ -244,21 +282,23 @@ namespace CarcassYieldTweaker
                     this.HideSliderWolf = 1;
                     this.GutSliderWolf = 6;
                     this.QuarterSizeSliderWolf = 7f;
-                    this.QuarterDurationMinutesSliderWolf = 20;
                     this.FatToMeatPercentSliderWolf = 2;
+                    this.HideTimeSliderWolf = 0.625f; // Realistic time for processing a wolf hide
+                    this.QuarterDurationMinutesSliderWolf = 20;
 
-                    //// TimberWolf (all missing variables added, since it wasn't in the original preset)
-                    //this.MeatSliderMinTimberWolf = 4f; // Default value
-                    //this.MeatSliderMaxTimberWolf = 7f; // Default value
-                    //this.HideSliderTimberWolf = 1; // Default value
-                    //this.GutSliderTimberWolf = 2; // Default value
-                    //this.QuarterSizeSliderTimberWolf = 2.5f; // Default value
-                    //this.QuarterDurationMinutesSliderTimberWolf = 30; // Default value
-                    //this.FatToMeatPercentSliderTimberWolf = 3; // Default value
+                    // TimberWolf
+                    this.MeatSliderMinTimberWolf = 9f; // Larger minimum meat yield due to increased size.
+                    this.MeatSliderMaxTimberWolf = 32f; // Higher maximum meat yield for a larger wolf.
+                    this.HideSliderTimberWolf = 1; // Still yields only 1 hide.
+                    this.GutSliderTimberWolf = 8; // More guts due to its larger body size.
+                    this.QuarterSizeSliderTimberWolf = 9f; // Larger quarters for a bigger wolf.
+                    this.FatToMeatPercentSliderTimberWolf = 3; // Slightly higher fat-to-meat ratio than regular wolves.
+                    this.HideTimeSliderTimberWolf = 0.75f; // Slightly longer hide processing time due to size.
+                    this.QuarterDurationMinutesSliderTimberWolf = 30; // Longer quartering time than regular wolves.
 
-                    //// Poisoned Wolf (DLC) (all missing variables added, since it wasn't in the original preset)
-                    //this.HideSliderPoisonedWolf = 1; // Default value
-                    //this.GutSliderPoisonedWolf = 2; // Default value
+                    // Poisoned Wolf (DLC)
+                    this.HideSliderPoisonedWolf = 1; // Default value
+                    this.GutSliderPoisonedWolf = 2; // Default value
 
                     // Bear
                     this.MeatSliderMinBear = 16f;
@@ -266,8 +306,9 @@ namespace CarcassYieldTweaker
                     this.HideSliderBear = 1;
                     this.GutSliderBear = 25;
                     this.QuarterSizeSliderBear = 25f;
-                    this.QuarterDurationMinutesSliderBear = 180;
                     this.FatToMeatPercentSliderBear = 25;
+                    this.HideTimeSliderBear = 2.25f; // Realistic time for processing a bear hide
+                    this.QuarterDurationMinutesSliderBear = 180;
 
                     // Cougar (DLC)
                     this.MeatSliderMinCougar = 13f;
@@ -275,11 +316,12 @@ namespace CarcassYieldTweaker
                     this.HideSliderCougar = 1;
                     this.GutSliderCougar = 6;
                     this.QuarterSizeSliderCougar = 18f;
-                    this.QuarterDurationMinutesSliderCougar = 60;
                     this.FatToMeatPercentSliderCougar = 4;
+                    this.HideTimeSliderCougar = 0.75f; // Realistic time for processing a cougar hide
+                    this.QuarterDurationMinutesSliderCougar = 60;
 
                     // Quarter Waste Multiplier
-                    this.QuarterWasteMultipler = 1.2f;
+                    this.QuarterWasteSlider = 1.2f;
 
 
                     break;
@@ -292,11 +334,13 @@ namespace CarcassYieldTweaker
                     this.MeatSliderMaxRabbit = 1.5f; // Realistic unchanged
                     this.HideSliderRabbit = 1;
                     this.GutSliderRabbit = 2; // Realistic unchanged
+                    this.HideTimeSliderRabbit = 0.25f; // Doubled Realistic time for rabbit hide processing
 
                     // Ptarmigan (DLC)
                     this.MeatSliderMinPtarmigan = 0.43f; // Realistic unchanged
                     this.MeatSliderMaxPtarmigan = 0.81f; // Realistic unchanged
                     this.HideSliderPtarmigan = 4;
+                    this.HideTimeSliderPtarmigan = 0.50f; // Doubled Realistic time for ptarmigan feather plucking
 
                     // Doe
                     this.MeatSliderMinDoe = 11f; // Realistic -33%
@@ -304,8 +348,9 @@ namespace CarcassYieldTweaker
                     this.HideSliderDoe = 1;
                     this.GutSliderDoe = 3; // Arbitrary value
                     this.QuarterSizeSliderDoe = 6f; // Arbitrary value
-                    this.QuarterDurationMinutesSliderDoe = 30;
                     this.FatToMeatPercentSliderDoe = 6;
+                    this.HideTimeSliderDoe = 0.75f; // Realistic time for processing a doe hide
+                    this.QuarterDurationMinutesSliderDoe = 30;
 
                     //// Stag
                     this.MeatSliderMinStag = 25f; // Realistic -33%
@@ -313,8 +358,9 @@ namespace CarcassYieldTweaker
                     this.HideSliderStag = 1;
                     this.GutSliderStag = 5; // Arbitrary value
                     this.QuarterSizeSliderStag = 8f; // Arbitrary value
-                    this.QuarterDurationMinutesSliderStag = 70;
                     this.FatToMeatPercentSliderStag = 8;
+                    this.HideTimeSliderStag = 1f; // faster Realistic time for processing a stag hide
+                    this.QuarterDurationMinutesSliderStag = 70;
 
                     // Moose
                     this.MeatSliderMinMoose = 80f; // Realistic -33%
@@ -322,8 +368,9 @@ namespace CarcassYieldTweaker
                     this.HideSliderMoose = 1;
                     this.GutSliderMoose = 16; // Arbitrary value
                     this.QuarterSizeSliderMoose = 20f; // Arbitrary value
-                    this.QuarterDurationMinutesSliderMoose = 120;
                     this.FatToMeatPercentSliderMoose = 15;
+                    this.HideTimeSliderMoose = 1.5f; // faster Realistic time for processing a moose hide
+                    this.QuarterDurationMinutesSliderMoose = 120;
 
                     // Wolf
                     this.MeatSliderMinWolf = 5f; // Realistic -33%
@@ -331,21 +378,24 @@ namespace CarcassYieldTweaker
                     this.HideSliderWolf = 1;
                     this.GutSliderWolf = 2; // Arbitrary value
                     this.QuarterSizeSliderWolf = 5f; // Arbitrary value
-                    this.QuarterDurationMinutesSliderWolf = 40;
                     this.FatToMeatPercentSliderWolf = 4;
+                    this.HideTimeSliderWolf = 0.75f; // slower Realistic time for processing a wolf hide
+                    this.QuarterDurationMinutesSliderWolf = 40;
 
-                    // TimberWolf 
-                    //this.MeatSliderMinTimberWolf = 4f; // Default value
-                    //this.MeatSliderMaxTimberWolf = 7f; // Default value
-                    //this.HideSliderTimberWolf = 1; // Default value
-                    //this.GutSliderTimberWolf = 2; // Default value
-                    //this.QuarterSizeSliderTimberWolf = 2.5f; // Default value
-                    this.QuarterDurationMinutesSliderTimberWolf = 45;
-                    this.FatToMeatPercentSliderTimberWolf = 5;
 
-                    // Poisoned Wolf (DLC) 
-                    //this.HideSliderPoisonedWolf = 1; // Default value
-                    //this.GutSliderPoisonedWolf = 2; // Default value
+                    // TimberWolf
+                    this.MeatSliderMinTimberWolf = 7f; // smaller Larger minimum meat yield due to increased size.
+                    this.MeatSliderMaxTimberWolf = 19f; // smaller Higher maximum meat yield for a larger wolf.
+                    this.HideSliderTimberWolf = 1; // Still yields only 1 hide.
+                    this.GutSliderTimberWolf = 7; // More guts due to its larger body size.
+                    this.QuarterSizeSliderTimberWolf = 8f; // Larger quarters for a bigger wolf.
+                    this.FatToMeatPercentSliderTimberWolf = 3; // Slightly higher fat-to-meat ratio than regular wolves.
+                    this.HideTimeSliderTimberWolf = 0.90f; // Slightly longer hide processing time due to size.
+                    this.QuarterDurationMinutesSliderTimberWolf = 45; // Longer quartering time than regular wolves.
+
+                    // Poisoned Wolf (DLC)
+                    this.HideSliderPoisonedWolf = 1; // Default value
+                    this.GutSliderPoisonedWolf = 2; // Default value
 
                     // Bear
                     this.MeatSliderMinBear = 16f; // Realistic unchanged
@@ -353,8 +403,9 @@ namespace CarcassYieldTweaker
                     this.HideSliderBear = 1;
                     this.GutSliderBear = 12; // Vanilla value 12
                     this.QuarterSizeSliderBear = 15f; // Realistic -10
-                    this.QuarterDurationMinutesSliderBear = 120;
                     this.FatToMeatPercentSliderBear = 10;
+                    this.HideTimeSliderBear = 1.5f; // Realistic time for processing a bear hide
+                    this.QuarterDurationMinutesSliderBear = 120;
 
                     // Cougar (DLC)
                     this.MeatSliderMinCougar = 8f; // Realistic -33%
@@ -362,33 +413,40 @@ namespace CarcassYieldTweaker
                     this.HideSliderCougar = 1;
                     this.GutSliderCougar = 5; // Arbitrary value
                     this.QuarterSizeSliderCougar = 7f; // Arbitrary value
-                    this.QuarterDurationMinutesSliderCougar = 90;
                     this.FatToMeatPercentSliderCougar = 10;
+                    this.HideTimeSliderCougar = 0.90f; // Realistic time for processing a cougar hide   
+                    this.QuarterDurationMinutesSliderCougar = 90;
 
                     // Quarter Waste Multiplier
-                    this.QuarterWasteMultipler = 1.2f;
+                    this.QuarterWasteSlider = 1.2f;
 
                     break;
 
             }
         }
 
-        [Section("Global Harvest Time (Multipliers) ")]
+        [Section("Global Harvest Settings ")]
 
         [Name("Meat (Thawed Carcass)")]
         [Description("Global Meat harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2)]
+        [Slider(0.01f, 3.00f)]
         public float GlobalMeatTimeSlider = 1f;
 
         [Name("Meat (Frozen Carcass)")]
         [Description("Global Frozen Meat harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2)]
+        [Slider(0.01f, 3.00f)]
         public float GlobalFrozenMeatTimeSlider = 1f;
 
         [Name("Gut")]
         [Description("Global Gut harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2)]
+        [Slider(0.01f, 3.00f)]
         public float GlobalGutTimeSlider = 1f;
+
+        [Section("Quarter Waste (Multiplier)")]
+        [Name("Waste")]
+        [Description("Changes the amount of unharvestable waste, e.g. Bones. Vanilla value is 2")]
+        [Slider(0.01f, 6.00f)]
+        public float QuarterWasteSlider = VanillaSettings.VanillaQuarterWasteMultiplier;
 
 
         [Section("Harvestables")]
@@ -409,17 +467,17 @@ namespace CarcassYieldTweaker
 
         [Name("Minimum Meat (Kg)")]
         [Description("Minimum meat from a freshly killed Rabbit. Vanilla value is 0.75")]
-        [Slider(0.75f, 5f)]
+        [Slider(0.1f, 5f)]
         public float MeatSliderMinRabbit = VanillaSettings.VanillaMeatSliderMinRabbit;
 
         [Name("Maximum Meat (Kg)")]
         [Description("Maximum meat from a freshly killed Rabbit. Vanilla value is 1.5")]
-        [Slider(0.75f, 5f)]
+        [Slider(0.1f, 5f)]
         public float MeatSliderMaxRabbit = VanillaSettings.VanillaMeatSliderMaxRabbit;
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Rabbit. Vanilla value is 1")]
-        [Slider(0, 10)]
+        [Slider(0, 3)]
         public int HideSliderRabbit = VanillaSettings.VanillaHideSliderRabbit;
 
         [Name("Gut Count")]
@@ -429,7 +487,7 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Harvest Time")]
         [Description("Rabbit Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f)]
         public float HideTimeSliderRabbit = VanillaSettings.VanillaHideTimeSliderRabbit;
 
 
@@ -438,22 +496,22 @@ namespace CarcassYieldTweaker
 
         [Name("Minimum Meat (Kg)")]
         [Description("Minimum meat from a freshly killed Ptarmigan. Vanilla value is 0.75")]
-        [Slider(0.75f, 5f)]
+        [Slider(0.1f, 5f)]
         public float MeatSliderMinPtarmigan = VanillaSettings.VanillaMeatSliderMinPtarmigan;
 
         [Name("Maximum Meat (Kg)")]
         [Description("Maximum meat from a freshly killed Ptarmigan. Vanilla value is 1.5")]
-        [Slider(0.75f, 5f)]
+        [Slider(0.1f, 5f)]
         public float MeatSliderMaxPtarmigan = VanillaSettings.VanillaMeatSliderMaxPtarmigan;
 
         [Name("Down Feather Count")]
         [Description("Number of harvestable down feathers from a Ptarmigan. Vanilla value is 4")]
-        [Slider(1f, 10f)]
+        [Slider(1, 12)]
         public int HideSliderPtarmigan = VanillaSettings.VanillaHideSliderPtarmigan;
 
         [Name("Down Feathers Harvest Time")]
         [Description("Ptarmigan down feathers harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f)]
         public float HideTimeSliderPtarmigan = VanillaSettings.VanillaHideTimeSliderPtarmigan;
 
 
@@ -462,17 +520,17 @@ namespace CarcassYieldTweaker
 
         [Name("Minimum Meat (Kg)")]
         [Description("Minimum meat from a freshly killed Doe. Vanilla value is 7")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 100f)]
         public float MeatSliderMinDoe = VanillaSettings.VanillaMeatSliderMinDoe;
 
         [Name("Maximum Meat (Kg)")]
         [Description("Maximum meat from a freshly killed Doe. Vanilla value is 9")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 100f)]
         public float MeatSliderMaxDoe = VanillaSettings.VanillaMeatSliderMaxDoe;
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Doe. Vanilla value is 1")]
-        [Slider(0, 10)]
+        [Slider(0, 2)]
         public int HideSliderDoe = VanillaSettings.VanillaHideSliderDoe;
 
         [Name("Gut Count")]
@@ -492,7 +550,7 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Harvest Time")]
         [Description("Doe Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f)]
         public float HideTimeSliderDoe = VanillaSettings.VanillaHideTimeSliderDoe;
 
         [Name("Quarter Time")]
@@ -506,17 +564,17 @@ namespace CarcassYieldTweaker
 
         [Name("Minimum Meat (Kg)")]
         [Description("Minimum amount of harvestable meat in Kg from a Stag. Vanilla value is 11")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 150f)]
         public float MeatSliderMinStag = VanillaSettings.VanillaMeatSliderMinStag;
 
         [Name("Maximum Meat (Kg)")]
         [Description("Maximum amount of harvestable meat in Kg from a Stag. Vanilla value is 13")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 150f)]
         public float MeatSliderMaxStag = VanillaSettings.VanillaMeatSliderMaxStag;
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Stag. Vanilla value is 1")]
-        [Slider(0, 10)]
+        [Slider(0, 2)]
         public int HideSliderStag = VanillaSettings.VanillaHideSliderStag;
 
         [Name("Gut Count")]
@@ -536,7 +594,7 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Harvest Time")]
         [Description("Stag Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f)]
         public float HideTimeSliderStag = VanillaSettings.VanillaHideTimeSliderStag;
 
         [Name("Quarter Time")]
@@ -550,17 +608,17 @@ namespace CarcassYieldTweaker
 
         [Name("Minimum Meat (Kg)")]
         [Description("Minimum meat from a freshly killed Moose. Vanilla value is 30")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 600f)]
         public float MeatSliderMinMoose = VanillaSettings.VanillaMeatSliderMinMoose;
 
         [Name("Maximum Meat (Kg)")]
         [Description("Maximum meat from a freshly killed Moose. Vanilla value is 45")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 600f)]
         public float MeatSliderMaxMoose = VanillaSettings.VanillaMeatSliderMaxMoose;
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Moose. Vanilla value is 1")]
-        [Slider(0, 10)]
+        [Slider(0, 4)]
         public int HideSliderMoose = VanillaSettings.VanillaHideSliderMoose;
 
         [Name("Gut Count")]
@@ -594,17 +652,17 @@ namespace CarcassYieldTweaker
 
         [Name("Minimum Meat (Kg)")]
         [Description("Minimum meat from a freshly killed Wolf. Vanilla value is 3")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 50f)]
         public float MeatSliderMinWolf = VanillaSettings.VanillaMeatSliderMinWolf;
 
         [Name("Maximum Meat (Kg)")]
         [Description("Maximum meat from a freshly killed Wolf. Vanilla value is 6")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 50f)]
         public float MeatSliderMaxWolf = VanillaSettings.VanillaMeatSliderMaxWolf;
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Wolf. Vanilla value is 1")]
-        [Slider(0, 10)]
+        [Slider(0, 2)]
         public int HideSliderWolf = VanillaSettings.VanillaHideSliderWolf;
 
         [Name("Gut Count")]
@@ -638,17 +696,17 @@ namespace CarcassYieldTweaker
 
         [Name("Minimum Meat (Kg)")]
         [Description("Minimum meat from a freshly killed TimberWolf. Vanilla value is 4")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 70f)]
         public float MeatSliderMinTimberWolf = VanillaSettings.VanillaMeatSliderMinTimberWolf;
 
         [Name("Maximum Meat (Kg)")]
         [Description("Maximum meat from a freshly killed TimberWolf. Vanilla value is 7")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 70f)]
         public float MeatSliderMaxTimberWolf = VanillaSettings.VanillaMeatSliderMaxTimberWolf;
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed TimberWolf. Vanilla value is 1")]
-        [Slider(0, 10)]
+        [Slider(0, 3)]
         public int HideSliderTimberWolf = VanillaSettings.VanillaHideSliderTimberWolf;
 
         [Name("Gut Count")]
@@ -682,17 +740,17 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Poisoned Wolf. Vanilla value is 1")]
-        [Slider(0, 10)]
+        [Slider(0, 2)]
         public int HideSliderPoisonedWolf = VanillaSettings.VanillaHideSliderPoisonedWolf;
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Poisoned Wolf. Vanilla value is 2")]
-        [Slider(1, 20)]
+        [Slider(1, 10)]
         public int GutSliderPoisonedWolf = VanillaSettings.VanillaGutSliderPoisonedWolf;
 
         [Name("Hide Harvest Time")]
         [Description("Poisoned Wolf Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f)]
         public float HideTimeSliderPoisonedWolf = VanillaSettings.VanillaHideTimeSliderPoisonedWolf;
 
 
@@ -711,7 +769,7 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Bear. Vanilla value is 1")]
-        [Slider(0, 10)]
+        [Slider(0, 3)]
         public int HideSliderBear = VanillaSettings.VanillaHideSliderBear;
 
         [Name("Gut Count")]
@@ -745,17 +803,17 @@ namespace CarcassYieldTweaker
 
         [Name("Minimum Meat (Kg)")]
         [Description("Minimum meat from a freshly killed Cougar. Vanilla value is 4")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 100f)]
         public float MeatSliderMinCougar = VanillaSettings.VanillaMeatSliderMinCougar;
 
         [Name("Maximum Meat (Kg)")]
         [Description("Maximum meat from a freshly killed Cougar. Vanilla value is 5")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 100f)]
         public float MeatSliderMaxCougar = VanillaSettings.VanillaMeatSliderMaxCougar;
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Cougar. Vanilla value is 1")]
-        [Slider(1f, 10f)]
+        [Slider(1f, 2f)]
         public int HideSliderCougar = VanillaSettings.VanillaHideSliderCougar;
 
         [Name("Gut Count")]
@@ -783,14 +841,6 @@ namespace CarcassYieldTweaker
         [Slider(1, 180)]
         public int QuarterDurationMinutesSliderCougar = VanillaSettings.VanillaQuarterDurationMinutesSliderCougar;
 
-
-
-        [Section("Quarter Waste (Multiplier)")]
-
-        [Name("Waste")]
-        [Description("Changes the amount of unharvestable waste, e.g. Bones. Vanilla value is 2")]
-        [Slider(0f, 4f)]
-        public float QuarterWasteMultipler = VanillaSettings.VanillaQuarterWasteMultiplier;
 
     }
 }
