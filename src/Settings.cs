@@ -556,7 +556,7 @@ namespace CarcassYieldTweaker
 
         [Name("Quarter Time")]
         [Description("Time to quarter a Doe. Vanilla value is 60")]
-        [Slider(1, 180, NumberFormat = "{0:F2}m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
         public int QuarterDurationMinutesSliderDoe = VanillaSettings.VanillaQuarterDurationMinutesSliderDoe;
 
 
@@ -600,7 +600,7 @@ namespace CarcassYieldTweaker
 
         [Name("Quarter Time")]
         [Description("Time to quarter a Stag. Vanilla value is 75")]
-        [Slider(1, 180, NumberFormat = "{0:F2}m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
         public int QuarterDurationMinutesSliderStag = VanillaSettings.VanillaQuarterDurationMinutesSliderStag;
 
 
@@ -644,7 +644,7 @@ namespace CarcassYieldTweaker
 
         [Name("Quarter Time")]
         [Description("Time to quarter a Moose. Vanilla value is 120")]
-        [Slider(1, 180, NumberFormat = "{0:F2}m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
         public int QuarterDurationMinutesSliderMoose = VanillaSettings.VanillaQuarterDurationMinutesSliderMoose;
 
 
@@ -688,7 +688,7 @@ namespace CarcassYieldTweaker
 
         [Name("Quarter Time")]
         [Description("Time to quarter a Wolf. Vanilla value is 60")]
-        [Slider(1, 180, NumberFormat = "{0:F2}m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
         public int QuarterDurationMinutesSliderWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderWolf;
 
 
@@ -732,7 +732,7 @@ namespace CarcassYieldTweaker
 
         [Name("Quarter Time")]
         [Description("Time to quarter a TimberWolf. Vanilla value is 60")]
-        [Slider(1, 180, NumberFormat = "{0:F2}m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
         public int QuarterDurationMinutesSliderTimberWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderTimberWolf;
 
 
@@ -795,7 +795,7 @@ namespace CarcassYieldTweaker
 
         [Name("Quarter Time")]
         [Description("Time to quarter a Bear. Vanilla value is 120")]
-        [Slider(1, 180, NumberFormat = "{0:F2}m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
         public int QuarterDurationMinutesSliderBear = VanillaSettings.VanillaQuarterDurationMinutesSliderBear;
 
 
@@ -839,7 +839,7 @@ namespace CarcassYieldTweaker
 
         [Name("Quarter Time")]
         [Description("Time to quarter a Cougar. Vanilla value is 120")]
-        [Slider(1, 180, NumberFormat = "{0:F2}m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
         public int QuarterDurationMinutesSliderCougar = VanillaSettings.VanillaQuarterDurationMinutesSliderCougar;
 
     }
