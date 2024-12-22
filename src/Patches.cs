@@ -219,7 +219,7 @@ namespace CarcassYieldTweaker
                         break;
                 }
 
-                return (float)Math.Round(rawMultiplier, 1);
+                return (float)Math.Round(rawMultiplier, 2);
             }
 
 

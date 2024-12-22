@@ -425,28 +425,22 @@ namespace CarcassYieldTweaker
             }
         }
 
-        [Section("Global Harvest Settings ")]
+        [Section("Global Harvest Time Multipliers")]
 
         [Name("Meat (Thawed Carcass)")]
         [Description("Global Meat harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 3.00f)]
+        [Slider(0.01f, 3.00f, NumberFormat = "{0:F2}")]
         public float MeatTimeSliderGlobal = 1f;
 
         [Name("Meat (Frozen Carcass)")]
         [Description("Global Frozen Meat harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 3.00f)]
+        [Slider(0.01f, 3.00f, NumberFormat = "{0:F2}")]
         public float FrozenMeatTimeSliderGlobal = 1f;
 
         [Name("Gut")]
         [Description("Global Gut harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 3.00f)]
+        [Slider(0.01f, 3.00f, NumberFormat = "{0:F2}")]
         public float GutTimeSliderGlobal = 1f;
-
-        [Section("Quarter Waste (Multiplier)")]
-        [Name("Waste")]
-        [Description("Changes the amount of unharvestable waste, e.g. Bones. Vanilla value is 2")]
-        [Slider(0.01f, 6.00f)]
-        public float QuarterWasteSlider = VanillaSettings.VanillaQuarterWasteMultiplier;
 
 
         [Section("Harvestables")]
@@ -463,16 +457,23 @@ namespace CarcassYieldTweaker
         public int preset = 0;
 
 
+        [Section("Quartering Waste")]
+        [Name("Waste Weight Multiplier")]
+        [Description("Changes the amount of unharvestable waste in quarters. Vanilla value is 2 which means your quarters weigh twice as much as the meat you'll get from them.")]
+        [Slider(0.5f, 4.00f, NumberFormat = "{0:F1}")]
+        public float QuarterWasteSlider = VanillaSettings.VanillaQuarterWasteMultiplier;
+
+
         [Section("Rabbit")]
 
-        [Name("Minimum Meat (Kg)")]
+        [Name("Minimum Meat")]
         [Description("Minimum meat from a freshly killed Rabbit. Vanilla value is 0.75")]
-        [Slider(0.1f, 5f)]
+        [Slider(0f, 5f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMinRabbit = VanillaSettings.VanillaMeatSliderMinRabbit;
 
-        [Name("Maximum Meat (Kg)")]
+        [Name("Maximum Meat")]
         [Description("Maximum meat from a freshly killed Rabbit. Vanilla value is 1.5")]
-        [Slider(0.1f, 5f)]
+        [Slider(0f, 5f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMaxRabbit = VanillaSettings.VanillaMeatSliderMaxRabbit;
 
         [Name("Hide Count")]
@@ -487,45 +488,45 @@ namespace CarcassYieldTweaker
 
         [Name("Hide Harvest Time")]
         [Description("Rabbit Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderRabbit = VanillaSettings.VanillaHideTimeSliderRabbit;
 
 
 
         [Section("Ptarmigan (DLC)")]
 
-        [Name("Minimum Meat (Kg)")]
+        [Name("Minimum Meat")]
         [Description("Minimum meat from a freshly killed Ptarmigan. Vanilla value is 0.75")]
-        [Slider(0.1f, 5f)]
+        [Slider(0f, 5f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMinPtarmigan = VanillaSettings.VanillaMeatSliderMinPtarmigan;
 
-        [Name("Maximum Meat (Kg)")]
+        [Name("Maximum Meat")]
         [Description("Maximum meat from a freshly killed Ptarmigan. Vanilla value is 1.5")]
-        [Slider(0.1f, 5f)]
+        [Slider(0.1f, 5f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMaxPtarmigan = VanillaSettings.VanillaMeatSliderMaxPtarmigan;
 
         [Name("Down Feather Count")]
         [Description("Number of harvestable down feathers from a Ptarmigan. Vanilla value is 4")]
-        [Slider(1, 12)]
+        [Slider(0, 12)]
         public int HideSliderPtarmigan = VanillaSettings.VanillaHideSliderPtarmigan;
 
         [Name("Down Feathers Harvest Time")]
         [Description("Ptarmigan down feathers harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderPtarmigan = VanillaSettings.VanillaHideTimeSliderPtarmigan;
 
 
 
         [Section("Doe")]
 
-        [Name("Minimum Meat (Kg)")]
+        [Name("Minimum Meat")]
         [Description("Minimum meat from a freshly killed Doe. Vanilla value is 7")]
-        [Slider(0f, 100f)]
+        [Slider(0f, 100f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMinDoe = VanillaSettings.VanillaMeatSliderMinDoe;
 
-        [Name("Maximum Meat (Kg)")]
+        [Name("Maximum Meat")]
         [Description("Maximum meat from a freshly killed Doe. Vanilla value is 9")]
-        [Slider(0f, 100f)]
+        [Slider(0f, 100f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMaxDoe = VanillaSettings.VanillaMeatSliderMaxDoe;
 
         [Name("Hide Count")]
@@ -538,38 +539,38 @@ namespace CarcassYieldTweaker
         [Slider(0, 20)]
         public int GutSliderDoe = VanillaSettings.VanillaGutSliderDoe;
 
-        [Name("Quarter Size (Kg)")]
+        [Name("Quarter Size")]
         [Description("Size of each quarter in Kg from a Doe. Vanilla value is 2.5")]
-        [Slider(1f, 50f)]
+        [Slider(1f, 50f, NumberFormat = "{0:F1} Kg")]
         public float QuarterSizeSliderDoe = VanillaSettings.VanillaQuarterSizeSliderDoe;
 
         [Name("Fat to Meat Percentage (%)")]
         [Description("Fat to meat percentage for a Doe. Vanilla value is 20%")]
-        [Slider(0, 40)]
-        public float FatToMeatPercentSliderDoe = VanillaSettings.VanillaFatToMeatPercentSliderDoe;
+        [Slider(0, 40, NumberFormat = "{0:#}%")]
+        public int FatToMeatPercentSliderDoe = VanillaSettings.VanillaFatToMeatPercentSliderDoe;
 
         [Name("Hide Harvest Time")]
         [Description("Doe Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderDoe = VanillaSettings.VanillaHideTimeSliderDoe;
 
         [Name("Quarter Time")]
-        [Description("Minutes to quarter a Doe. Vanilla value is 60")]
-        [Slider(1, 180)]
+        [Description("Time to quarter a Doe. Vanilla value is 60")]
+        [Slider(1, 180, NumberFormat = "{0:F2}m")]
         public int QuarterDurationMinutesSliderDoe = VanillaSettings.VanillaQuarterDurationMinutesSliderDoe;
 
 
 
         [Section("Stag")]
 
-        [Name("Minimum Meat (Kg)")]
+        [Name("Minimum Meat")]
         [Description("Minimum amount of harvestable meat in Kg from a Stag. Vanilla value is 11")]
-        [Slider(0f, 150f)]
+        [Slider(0f, 150f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMinStag = VanillaSettings.VanillaMeatSliderMinStag;
 
-        [Name("Maximum Meat (Kg)")]
+        [Name("Maximum Meat")]
         [Description("Maximum amount of harvestable meat in Kg from a Stag. Vanilla value is 13")]
-        [Slider(0f, 150f)]
+        [Slider(0f, 150f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMaxStag = VanillaSettings.VanillaMeatSliderMaxStag;
 
         [Name("Hide Count")]
@@ -579,41 +580,41 @@ namespace CarcassYieldTweaker
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Stag. Vanilla value is 2")]
-        [Slider(1, 20)]
+        [Slider(0, 20)]
         public int GutSliderStag = VanillaSettings.VanillaGutSliderStag;
 
-        [Name("Quarter Size (Kg)")]
+        [Name("Quarter Size")]
         [Description("Size of each quarter in Kg from a Stag. Vanilla value is 2.5")]
-        [Slider(1f, 50f)]
+        [Slider(1f, 50f, NumberFormat = "{0:F1} Kg")]
         public float QuarterSizeSliderStag = VanillaSettings.VanillaQuarterSizeSliderStag;
 
         [Name("Fat to Meat Percentage (%)")]
         [Description("Fat to meat percentage for a Stag. Vanilla value is 20%")]
-        [Slider(0, 40)]
+        [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderStag = VanillaSettings.VanillaFatToMeatPercentSliderStag;
 
         [Name("Hide Harvest Time")]
         [Description("Stag Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderStag = VanillaSettings.VanillaHideTimeSliderStag;
 
         [Name("Quarter Time")]
-        [Description("Minutes to quarter a Stag. Vanilla value is 75")]
-        [Slider(1, 180)]
+        [Description("Time to quarter a Stag. Vanilla value is 75")]
+        [Slider(1, 180, NumberFormat = "{0:F2}m")]
         public int QuarterDurationMinutesSliderStag = VanillaSettings.VanillaQuarterDurationMinutesSliderStag;
 
 
 
         [Section("Moose")]
 
-        [Name("Minimum Meat (Kg)")]
+        [Name("Minimum Meat")]
         [Description("Minimum meat from a freshly killed Moose. Vanilla value is 30")]
-        [Slider(0f, 600f)]
+        [Slider(0f, 600f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMinMoose = VanillaSettings.VanillaMeatSliderMinMoose;
 
-        [Name("Maximum Meat (Kg)")]
+        [Name("Maximum Meat")]
         [Description("Maximum meat from a freshly killed Moose. Vanilla value is 45")]
-        [Slider(0f, 600f)]
+        [Slider(0f, 600f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMaxMoose = VanillaSettings.VanillaMeatSliderMaxMoose;
 
         [Name("Hide Count")]
@@ -623,41 +624,41 @@ namespace CarcassYieldTweaker
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Moose. Vanilla value is 12")]
-        [Slider(1, 48)]
+        [Slider(0, 48)]
         public int GutSliderMoose = VanillaSettings.VanillaGutSliderMoose;
 
-        [Name("Quarter Size (Kg)")]
+        [Name("Quarter Size")]
         [Description("Size of each quarter in Kg from a Moose. Vanilla value is 5")]
-        [Slider(1f, 50f)]
+        [Slider(1f, 50f, NumberFormat = "{0:F1} Kg")]
         public float QuarterSizeSliderMoose = VanillaSettings.VanillaQuarterSizeSliderMoose;
 
         [Name("Fat to Meat Percentage (%)")]
         [Description("Fat to meat percentage for a Moose. Vanilla value is 15%")]
-        [Slider(0, 40)]
+        [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderMoose = VanillaSettings.VanillaFatToMeatPercentSliderMoose;
 
         [Name("Hide Harvest Time")]
         [Description("Moose Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderMoose = VanillaSettings.VanillaHideTimeSliderMoose;
 
         [Name("Quarter Time")]
-        [Description("Minutes to quarter a Moose. Vanilla value is 120")]
-        [Slider(1, 180)]
+        [Description("Time to quarter a Moose. Vanilla value is 120")]
+        [Slider(1, 180, NumberFormat = "{0:F2}m")]
         public int QuarterDurationMinutesSliderMoose = VanillaSettings.VanillaQuarterDurationMinutesSliderMoose;
 
 
 
         [Section("Wolf")]
 
-        [Name("Minimum Meat (Kg)")]
+        [Name("Minimum Meat")]
         [Description("Minimum meat from a freshly killed Wolf. Vanilla value is 3")]
-        [Slider(0f, 50f)]
+        [Slider(0f, 50f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMinWolf = VanillaSettings.VanillaMeatSliderMinWolf;
 
-        [Name("Maximum Meat (Kg)")]
+        [Name("Maximum Meat")]
         [Description("Maximum meat from a freshly killed Wolf. Vanilla value is 6")]
-        [Slider(0f, 50f)]
+        [Slider(0f, 50f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMaxWolf = VanillaSettings.VanillaMeatSliderMaxWolf;
 
         [Name("Hide Count")]
@@ -667,41 +668,41 @@ namespace CarcassYieldTweaker
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Wolf. Vanilla value is 2")]
-        [Slider(1, 20)]
+        [Slider(0, 20)]
         public int GutSliderWolf = VanillaSettings.VanillaGutSliderWolf;
 
-        [Name("Quarter Size (Kg)")]
-        [Description("Size of each Quarter in Kg from a Wolf. Vanilla value is 2.5")]
-        [Slider(1f, 50f)]
+        [Name("Quarter Size")]
+        [Description("Size of each Quarter from a Wolf. Vanilla value is 2.5")]
+        [Slider(1f, 50f, NumberFormat = "{0:F1} Kg")]
         public float QuarterSizeSliderWolf = VanillaSettings.VanillaQuarterSizeSliderWolf;
 
         [Name("Fat to Meat Percentage (%)")]
         [Description("Fat to meat percentage for a Wolf. Vanilla value is 10%")]
-        [Slider(0, 40)]
+        [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderWolf = VanillaSettings.VanillaFatToMeatPercentSliderWolf;
 
         [Name("Hide Harvest Time")]
         [Description("Wolf Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderWolf = VanillaSettings.VanillaHideTimeSliderWolf;
 
         [Name("Quarter Time")]
-        [Description("Minutes to quarter a Wolf. Vanilla value is 60")]
-        [Slider(1, 180)]
+        [Description("Time to quarter a Wolf. Vanilla value is 60")]
+        [Slider(1, 180, NumberFormat = "{0:F2}m")]
         public int QuarterDurationMinutesSliderWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderWolf;
 
 
 
         [Section("TimberWolf")]
 
-        [Name("Minimum Meat (Kg)")]
+        [Name("Minimum Meat")]
         [Description("Minimum meat from a freshly killed TimberWolf. Vanilla value is 4")]
-        [Slider(0f, 70f)]
+        [Slider(0f, 70f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMinTimberWolf = VanillaSettings.VanillaMeatSliderMinTimberWolf;
 
-        [Name("Maximum Meat (Kg)")]
+        [Name("Maximum Meat")]
         [Description("Maximum meat from a freshly killed TimberWolf. Vanilla value is 7")]
-        [Slider(0f, 70f)]
+        [Slider(0f, 70f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMaxTimberWolf = VanillaSettings.VanillaMeatSliderMaxTimberWolf;
 
         [Name("Hide Count")]
@@ -711,27 +712,27 @@ namespace CarcassYieldTweaker
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed TimberWolf. Vanilla value is 2")]
-        [Slider(1, 20)]
+        [Slider(0, 20)]
         public int GutSliderTimberWolf = VanillaSettings.VanillaGutSliderTimberWolf;
 
-        [Name("Quarter Size (Kg)")]
-        [Description("Size of each Quarter in Kg from a TimberWolf. Vanilla value is 2.5")]
-        [Slider(1f, 50f)]
+        [Name("Quarter Size")]
+        [Description("Size of each Quarter from a TimberWolf. Vanilla value is 2.5")]
+        [Slider(1f, 50f, NumberFormat = "{0:F1} Kg")]
         public float QuarterSizeSliderTimberWolf = VanillaSettings.VanillaQuarterSizeSliderTimberWolf;
 
         [Name("Fat to Meat Percentage (%)")]
         [Description("Fat to meat percentage for a TimberWolf. Vanilla value is 10%")]
-        [Slider(0, 40)]
+        [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderTimberWolf = VanillaSettings.VanillaFatToMeatPercentSliderTimberWolf;
 
         [Name("Hide Harvest Time")]
         [Description("TimberWolf Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderTimberWolf = VanillaSettings.VanillaHideTimeSliderTimberWolf;
 
         [Name("Quarter Time")]
-        [Description("Minutes to quarter a TimberWolf. Vanilla value is 60")]
-        [Slider(1, 180)]
+        [Description("Time to quarter a TimberWolf. Vanilla value is 60")]
+        [Slider(1, 180, NumberFormat = "{0:F2}m")]
         public int QuarterDurationMinutesSliderTimberWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderTimberWolf;
 
 
@@ -745,26 +746,26 @@ namespace CarcassYieldTweaker
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Poisoned Wolf. Vanilla value is 2")]
-        [Slider(1, 10)]
+        [Slider(0, 10)]
         public int GutSliderPoisonedWolf = VanillaSettings.VanillaGutSliderPoisonedWolf;
 
         [Name("Hide Harvest Time")]
         [Description("Poisoned Wolf Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderPoisonedWolf = VanillaSettings.VanillaHideTimeSliderPoisonedWolf;
 
 
 
         [Section("Bear")]
 
-        [Name("Minimum Meat (Kg)")]
+        [Name("Minimum Meat")]
         [Description("Minimum meat from a freshly killed Bear. Vanilla value is 25")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 300f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMinBear = VanillaSettings.VanillaMeatSliderMinBear;
 
-        [Name("Maximum Meat (Kg)")]
+        [Name("Maximum Meat")]
         [Description("Maximum meat from a freshly killed Bear. Vanilla value is 40")]
-        [Slider(0f, 300f)]
+        [Slider(0f, 300f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMaxBear = VanillaSettings.VanillaMeatSliderMaxBear;
 
         [Name("Hide Count")]
@@ -774,71 +775,71 @@ namespace CarcassYieldTweaker
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Bear. Vanilla value is 10")]
-        [Slider(1, 40)]
+        [Slider(0, 40)]
         public int GutSliderBear = VanillaSettings.VanillaGutSliderBear;
 
-        [Name("Quarter Size (Kg)")]
-        [Description("Size of each Quarter in Kg from a Bear. Vanilla value is 5")]
-        [Slider(1f, 50f)]
+        [Name("Quarter Size")]
+        [Description("Size of each Quarter from a Bear. Vanilla value is 5")]
+        [Slider(1f, 50f, NumberFormat = "{0:F1} Kg")]
         public float QuarterSizeSliderBear = VanillaSettings.VanillaQuarterSizeSliderBear;
 
         [Name("Fat to Meat Percentage (%)")]
         [Description("Fat to meat percentage for a Bear. Vanilla value is 10%")]
-        [Slider(0, 40)]
+        [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderBear = VanillaSettings.VanillaFatToMeatPercentSliderBear;
 
         [Name("Hide Harvest Time")]
         [Description("Bear Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderBear = VanillaSettings.VanillaHideTimeSliderBear;
 
         [Name("Quarter Time")]
-        [Description("Minutes to quarter a Bear. Vanilla value is 120")]
-        [Slider(1, 180)]
+        [Description("Time to quarter a Bear. Vanilla value is 120")]
+        [Slider(1, 180, NumberFormat = "{0:F2}m")]
         public int QuarterDurationMinutesSliderBear = VanillaSettings.VanillaQuarterDurationMinutesSliderBear;
 
 
 
         [Section("Cougar (DLC)")]
 
-        [Name("Minimum Meat (Kg)")]
+        [Name("Minimum Meat")]
         [Description("Minimum meat from a freshly killed Cougar. Vanilla value is 4")]
-        [Slider(0f, 100f)]
+        [Slider(0f, 100f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMinCougar = VanillaSettings.VanillaMeatSliderMinCougar;
 
-        [Name("Maximum Meat (Kg)")]
+        [Name("Maximum Meat")]
         [Description("Maximum meat from a freshly killed Cougar. Vanilla value is 5")]
-        [Slider(0f, 100f)]
+        [Slider(0f, 100f, NumberFormat = "{0:F1} Kg")]
         public float MeatSliderMaxCougar = VanillaSettings.VanillaMeatSliderMaxCougar;
 
         [Name("Hide Count")]
         [Description("Hides from a freshly killed Cougar. Vanilla value is 1")]
-        [Slider(1f, 2f)]
+        [Slider(0, 2)]
         public int HideSliderCougar = VanillaSettings.VanillaHideSliderCougar;
 
         [Name("Gut Count")]
         [Description("Guts from a freshly killed Cougar. Vanilla value is 2")]
-        [Slider(1, 50)]
+        [Slider(0, 50)]
         public int GutSliderCougar = VanillaSettings.VanillaGutSliderCougar;
 
-        [Name("Quarter Size (Kg)")]
-        [Description("Size of each Quarter in Kg from a Cougar. Vanilla value is 2.5")]
-        [Slider(1f, 50f)]
+        [Name("Quarter Size")]
+        [Description("Size of each Quarter from a Cougar. Vanilla value is 2.5")]
+        [Slider(1f, 50f, NumberFormat = "{0:F1} Kg")]
         public float QuarterSizeSliderCougar = VanillaSettings.VanillaQuarterSizeSliderCougar;
 
         [Name("Fat to Meat Percentage (%)")]
         [Description("Fat to meat percentage for a Cougar. Vanilla value is 10%")]
-        [Slider(0, 40)]
+        [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderCougar = VanillaSettings.VanillaFatToMeatPercentSliderCougar;
 
         [Name("Hide Harvest Time")]
         [Description($"Cougar Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.1f, 2.0f)]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
         public float HideTimeSliderCougar = VanillaSettings.VanillaHideTimeSliderCougar;
 
         [Name("Quarter Time")]
-        [Description("Minutes to quarter a Cougar. Vanilla value is 120")]
-        [Slider(1, 180)]
+        [Description("Time to quarter a Cougar. Vanilla value is 120")]
+        [Slider(1, 180, NumberFormat = "{0:F2}m")]
         public int QuarterDurationMinutesSliderCougar = VanillaSettings.VanillaQuarterDurationMinutesSliderCougar;
 
     }
