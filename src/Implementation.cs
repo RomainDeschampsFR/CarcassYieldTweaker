@@ -8,7 +8,7 @@ namespace CarcassYieldTweaker
     {
         public override void OnInitializeMelon()
         {
-            MelonLogger.Msg($"[CarcassYieldTweaker] Version {Info.Version} loaded!");
+            MelonLogger.Msg($"Version {Info.Version} loaded!");
             Settings.OnLoad();
         }
     }

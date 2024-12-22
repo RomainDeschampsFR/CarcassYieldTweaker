@@ -430,17 +430,17 @@ namespace CarcassYieldTweaker
         [Name("Meat (Thawed Carcass)")]
         [Description("Global Meat harvest time multiplier. Vanilla value is 1")]
         [Slider(0.01f, 3.00f)]
-        public float GlobalMeatTimeSlider = 1f;
+        public float MeatTimeSliderGlobal = 1f;
 
         [Name("Meat (Frozen Carcass)")]
         [Description("Global Frozen Meat harvest time multiplier. Vanilla value is 1")]
         [Slider(0.01f, 3.00f)]
-        public float GlobalFrozenMeatTimeSlider = 1f;
+        public float FrozenMeatTimeSliderGlobal = 1f;
 
         [Name("Gut")]
         [Description("Global Gut harvest time multiplier. Vanilla value is 1")]
         [Slider(0.01f, 3.00f)]
-        public float GlobalGutTimeSlider = 1f;
+        public float GutTimeSliderGlobal = 1f;
 
         [Section("Quarter Waste (Multiplier)")]
         [Name("Waste")]

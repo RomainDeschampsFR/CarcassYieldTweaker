@@ -8,8 +8,26 @@ using System;
 namespace CarcassYieldTweaker
 {
 
+
+
     public static class Patches
     {
+
+        private static bool debug_mode = true; // Set to false to disable debug logging
+
+        private static void LogDebugMessage(string message)
+        {
+            if (debug_mode)
+            {
+                MelonLogger.Msg($"[CarcassYieldTweaker:Debug] {message}");
+            }
+        }
+
+        private static string FormatTimeLog(float original, float adjusted, float multiplier)
+        {
+            return $"{original:F1}m -> {adjusted:F1}m ({multiplier:F1}x)";
+        }
+
 
         public static class HarvestState
         {
@@ -103,99 +121,101 @@ namespace CarcassYieldTweaker
                     case "GEAR_RabbitCarcass":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderRabbit;
-                        //else if (itemType == "Meat")
-                        //    rawMultiplier = Settings.settings.MeatTimeSliderRabbit;
-                        //else if (itemType == "Gut")
-                        //    rawMultiplier = Settings.settings.GutTimeSliderRabbit;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
+                        else if (itemType == "Gut")
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
                         break;
 
                     case "GEAR_PtarmiganCarcass":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderPtarmigan;
-                        //else if (itemType == "Meat")
-                        //    rawMultiplier = Settings.settings.MeatTimeSliderPtarmigan;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
                         break;
 
                     case "WILDLIFE_Doe":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderDoe;
-                        //else if (itemType == "Meat")
-                        //    rawMultiplier = Settings.settings.MeatTimeSliderDoe;
-                        //else if (itemType == "Gut")
-                        //    rawMultiplier = Settings.settings.GutTimeSliderDoe;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
+                        else if (itemType == "Gut")
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
                         break;
 
                     case "WILDLIFE_Stag":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderStag;
-                        //else if (itemType == "Meat")
-                        //    rawMultiplier = Settings.settings.MeatTimeSliderStag;
-                        //else if (itemType == "Gut")
-                        //    rawMultiplier = Settings.settings.GutTimeSliderStag;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
+                        else if (itemType == "Gut")
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
                         break;
+
 
                     case "WILDLIFE_Moose":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderMoose;
-                        //else if (itemType == "Meat")
-                        //    rawMultiplier = Settings.settings.MeatTimeSliderMoose;
-                        //else if (itemType == "Gut")
-                        //    rawMultiplier = Settings.settings.GutTimeSliderMoose;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
+                        else if (itemType == "Gut")
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
                         break;
 
                     case "WILDLIFE_Wolf":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderWolf;
-                        //else if (itemType == "Meat")
-                        //    rawMultiplier = Settings.settings.MeatTimeSliderWolf;
-                        //else if (itemType == "Gut")
-                        //    rawMultiplier = Settings.settings.GutTimeSliderWolf;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
+                        else if (itemType == "Gut")
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
                         break;
 
                     case "WILDLIFE_TimberWolf":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderTimberWolf;
-                        //else if (itemType == "Meat")
-                        //    rawMultiplier = Settings.settings.MeatTimeSliderTimberWolf;
-                        //else if (itemType == "Gut")
-                        //    rawMultiplier = Settings.settings.GutTimeSliderTimberWolf;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
+                        else if (itemType == "Gut")
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
                         break;
 
                     case "WILDLIFE_StarvingWolf":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderPoisonedWolf;
-                        //else if (itemType == "Gut")
-                        //    rawMultiplier = Settings.settings.GutTimeSliderPoisonedWolf;
+                        else if (itemType == "Gut")
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
                         break;
 
                     case "WILDLIFE_Bear":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderBear;
-                        //else if (itemType == "Meat")
-                        //    rawMultiplier = Settings.settings.MeatTimeSliderBear;
-                        //else if (itemType == "Gut")
-                        //    rawMultiplier = Settings.settings.GutTimeSliderBear;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
+                        else if (itemType == "Gut")
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
                         break;
 
                     case "WILDLIFE_Cougar":
                         if (itemType == "Hide")
                             rawMultiplier = Settings.settings.HideTimeSliderCougar;
-                        //else if (itemType == "Meat")
-                        //    rawMultiplier = Settings.settings.MeatTimeSliderCougar;
-                        //else if (itemType == "Gut")
-                        //    rawMultiplier = Settings.settings.GutTimeSliderCougar;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
+                        else if (itemType == "Gut")
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
                         break;
 
                     default:
-                        // Fallback to global multipliers
-                        if (itemType == "Meat")
-                            rawMultiplier = Settings.settings.GlobalMeatTimeSlider;
-                        else if (itemType == "FrozenMeat")
-                            rawMultiplier = Settings.settings.GlobalFrozenMeatTimeSlider;
-                        else if (itemType == "Hide")
+                        // Fallback to global multipliers if animal type not found
+                        if (itemType == "Hide")
                             rawMultiplier = 1.0f;
+                        else if (itemType == "Meat")
+                            rawMultiplier = Settings.settings.MeatTimeSliderGlobal;
+                        else if (itemType == "FrozenMeat")
+                            rawMultiplier = Settings.settings.FrozenMeatTimeSliderGlobal;
                         else if (itemType == "Gut")
-                            rawMultiplier = Settings.settings.GlobalGutTimeSlider;
+                            rawMultiplier = Settings.settings.GutTimeSliderGlobal;
+                        LogDebugMessage($"[UNKNOWN:{animalType}] GLOBAL multiplier: {rawMultiplier:F1}");
                         break;
                 }
 
@@ -203,19 +223,6 @@ namespace CarcassYieldTweaker
             }
 
 
-
-            private static void LogDebugMessage(string message)
-            {
-                if (debug_mode)
-                {
-                    MelonLogger.Msg($"[CarcassYieldTweaker:Debug] {message}");
-                }
-            }
-
-            private static string FormatTimeLog(float original, float adjusted, float multiplier)
-            {
-                return $"{original:F1}m -> {adjusted:F1}m ({multiplier:F1}x)";
-            }
 
             // Button Press Time_Patches: Set pendingChange and record which button
             //
