@@ -48,8 +48,6 @@ namespace CarcassYieldTweaker
         public static class Time_Patches
 
         {
-            private static bool debug_mode = false; // Set to false to disable debug logging
-
             [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.GetHarvestDurationMinutes))]
             public class Patch_Panel_BodyHarvest_GetHarvestDurationMinutes
             {

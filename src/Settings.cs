@@ -425,43 +425,23 @@ namespace CarcassYieldTweaker
             }
         }
 
-        [Section("Global Harvest Time Multipliers")]
-
-        [Name("Meat (Thawed Carcass)")]
-        [Description("Global Meat harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 3.00f, NumberFormat = "{0:F2}")]
-        public float MeatTimeSliderGlobal = 1f;
-
-        [Name("Meat (Frozen Carcass)")]
-        [Description("Global Frozen Meat harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 3.00f, NumberFormat = "{0:F2}")]
-        public float FrozenMeatTimeSliderGlobal = 1f;
-
-        [Name("Gut")]
-        [Description("Global Gut harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 3.00f, NumberFormat = "{0:F2}")]
-        public float GutTimeSliderGlobal = 1f;
-
-
-        [Section("Harvestables")]
-
-        [Name("Presets")]
-        [Description("Select preset")]
+        [Section("Presets")]
+        
+        [Name("Select a Preset")]
         [Choice(new string[]
-        {
+{
             "Vanilla", // 0
             "Realistic", // 1
-            "Realistic (Balanced)", // 2
+            "Balanced", // 2
             "Custom"// 3
-        })]
+})]
         public int preset = 0;
 
-
-        [Section("Quartering Waste")]
-        [Name("Waste Weight Multiplier")]
+        [Name("Quarter Waste Weight Multiplier")]
         [Description("Changes the amount of unharvestable waste in quarters. Vanilla value is 2 which means your quarters weigh twice as much as the meat you'll get from them.")]
-        [Slider(0.5f, 4.00f, NumberFormat = "{0:F1}")]
+        [Slider(0.5f, 4.00f, NumberFormat = "{0:F1}x")]
         public float QuarterWasteSlider = VanillaSettings.VanillaQuarterWasteMultiplier;
+
 
 
         [Section("Rabbit")]
@@ -486,11 +466,6 @@ namespace CarcassYieldTweaker
         [Slider(0, 10)]
         public int GutSliderRabbit = VanillaSettings.VanillaGutSliderRabbit;
 
-        [Name("Hide Harvest Time")]
-        [Description("Rabbit Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
-        public float HideTimeSliderRabbit = VanillaSettings.VanillaHideTimeSliderRabbit;
-
 
 
         [Section("Ptarmigan (DLC)")]
@@ -509,11 +484,6 @@ namespace CarcassYieldTweaker
         [Description("Number of harvestable down feathers from a Ptarmigan. Vanilla value is 4")]
         [Slider(0, 12)]
         public int HideSliderPtarmigan = VanillaSettings.VanillaHideSliderPtarmigan;
-
-        [Name("Down Feathers Harvest Time")]
-        [Description("Ptarmigan down feathers harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
-        public float HideTimeSliderPtarmigan = VanillaSettings.VanillaHideTimeSliderPtarmigan;
 
 
 
@@ -549,16 +519,6 @@ namespace CarcassYieldTweaker
         [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderDoe = VanillaSettings.VanillaFatToMeatPercentSliderDoe;
 
-        [Name("Hide Harvest Time")]
-        [Description("Doe Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
-        public float HideTimeSliderDoe = VanillaSettings.VanillaHideTimeSliderDoe;
-
-        [Name("Quarter Time")]
-        [Description("Time to quarter a Doe. Vanilla value is 60")]
-        [Slider(1, 180, NumberFormat = "{0:#}m")]
-        public int QuarterDurationMinutesSliderDoe = VanillaSettings.VanillaQuarterDurationMinutesSliderDoe;
-
 
 
         [Section("Stag")]
@@ -592,16 +552,6 @@ namespace CarcassYieldTweaker
         [Description("Fat to meat percentage for a Stag. Vanilla value is 20%")]
         [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderStag = VanillaSettings.VanillaFatToMeatPercentSliderStag;
-
-        [Name("Hide Harvest Time")]
-        [Description("Stag Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
-        public float HideTimeSliderStag = VanillaSettings.VanillaHideTimeSliderStag;
-
-        [Name("Quarter Time")]
-        [Description("Time to quarter a Stag. Vanilla value is 75")]
-        [Slider(1, 180, NumberFormat = "{0:#}m")]
-        public int QuarterDurationMinutesSliderStag = VanillaSettings.VanillaQuarterDurationMinutesSliderStag;
 
 
 
@@ -637,16 +587,6 @@ namespace CarcassYieldTweaker
         [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderMoose = VanillaSettings.VanillaFatToMeatPercentSliderMoose;
 
-        [Name("Hide Harvest Time")]
-        [Description("Moose Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
-        public float HideTimeSliderMoose = VanillaSettings.VanillaHideTimeSliderMoose;
-
-        [Name("Quarter Time")]
-        [Description("Time to quarter a Moose. Vanilla value is 120")]
-        [Slider(1, 180, NumberFormat = "{0:#}m")]
-        public int QuarterDurationMinutesSliderMoose = VanillaSettings.VanillaQuarterDurationMinutesSliderMoose;
-
 
 
         [Section("Wolf")]
@@ -680,16 +620,6 @@ namespace CarcassYieldTweaker
         [Description("Fat to meat percentage for a Wolf. Vanilla value is 10%")]
         [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderWolf = VanillaSettings.VanillaFatToMeatPercentSliderWolf;
-
-        [Name("Hide Harvest Time")]
-        [Description("Wolf Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
-        public float HideTimeSliderWolf = VanillaSettings.VanillaHideTimeSliderWolf;
-
-        [Name("Quarter Time")]
-        [Description("Time to quarter a Wolf. Vanilla value is 60")]
-        [Slider(1, 180, NumberFormat = "{0:#}m")]
-        public int QuarterDurationMinutesSliderWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderWolf;
 
 
 
@@ -725,16 +655,6 @@ namespace CarcassYieldTweaker
         [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderTimberWolf = VanillaSettings.VanillaFatToMeatPercentSliderTimberWolf;
 
-        [Name("Hide Harvest Time")]
-        [Description("TimberWolf Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
-        public float HideTimeSliderTimberWolf = VanillaSettings.VanillaHideTimeSliderTimberWolf;
-
-        [Name("Quarter Time")]
-        [Description("Time to quarter a TimberWolf. Vanilla value is 60")]
-        [Slider(1, 180, NumberFormat = "{0:#}m")]
-        public int QuarterDurationMinutesSliderTimberWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderTimberWolf;
-
 
 
         [Section("Poisoned Wolf (DLC)")]
@@ -748,11 +668,6 @@ namespace CarcassYieldTweaker
         [Description("Guts from a freshly killed Poisoned Wolf. Vanilla value is 2")]
         [Slider(0, 10)]
         public int GutSliderPoisonedWolf = VanillaSettings.VanillaGutSliderPoisonedWolf;
-
-        [Name("Hide Harvest Time")]
-        [Description("Poisoned Wolf Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
-        public float HideTimeSliderPoisonedWolf = VanillaSettings.VanillaHideTimeSliderPoisonedWolf;
 
 
 
@@ -788,16 +703,6 @@ namespace CarcassYieldTweaker
         [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderBear = VanillaSettings.VanillaFatToMeatPercentSliderBear;
 
-        [Name("Hide Harvest Time")]
-        [Description("Bear Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
-        public float HideTimeSliderBear = VanillaSettings.VanillaHideTimeSliderBear;
-
-        [Name("Quarter Time")]
-        [Description("Time to quarter a Bear. Vanilla value is 120")]
-        [Slider(1, 180, NumberFormat = "{0:#}m")]
-        public int QuarterDurationMinutesSliderBear = VanillaSettings.VanillaQuarterDurationMinutesSliderBear;
-
 
 
         [Section("Cougar (DLC)")]
@@ -832,13 +737,245 @@ namespace CarcassYieldTweaker
         [Slider(0, 40, NumberFormat = "{0:#}%")]
         public int FatToMeatPercentSliderCougar = VanillaSettings.VanillaFatToMeatPercentSliderCougar;
 
-        [Name("Hide Harvest Time")]
-        [Description($"Cougar Hide harvest time multiplier. Vanilla value is 1")]
-        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}")]
+
+
+        // Description values taken from https://thelongdark.fandom.com/wiki/Carcass_Harvesting 2024-12-22
+        [Section("Global Harvest Times")]
+
+        [Name("Meat (Thawed Carcass)")]
+        [Description("Global Meat harvest time multiplier. Vanilla value is 1.\n" +
+                    "\nBase harvest rates are:\n" +
+                    "30 min/kg with Bare Hands.\n" +
+                    "20 min/kg with Improvised Hatchet.\n" +
+                    "15 min/kg with Hacksaw or Hatchet.\n" +
+                    "12 min/kg with Improvised Knife.\n" +
+                    "8 min/kg with Hunting Knife, Survival Knife, or Scrap Metal Shard.\n" +
+                    "7 min/kg with Cougar Claw Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces meat harvesting times by:\n" +
+                    "10% at level  2\n" +
+                    "25% at level  3\n" +
+                    "30% at level  4\n" +
+                    "50% at  level 5")]
+        [Slider(0.01f, 3.00f, NumberFormat = "{0:F2}x")]
+        public float MeatTimeSliderGlobal = 1f;
+
+        [Name("Meat (Frozen Carcass)")]
+        [Description("Global Frozen Meat harvest time multiplier. Vanilla value is 1.\n" +
+                    "\nBase harvest rates are:\n" +
+                    "Cannot harvest frozen meat with Bare Hands!\n" +
+                    "30 min/kg with Improvised Knife.\n" +
+                    "20 min/kg with Hunting Knife, Scrap Metal Shard, or Cougar Claw Knife.\n" +
+                    "18 min/kg with Cougar Claw Knife.\n" +
+                    "15 min/kg with Improvised Hatchet.\n" +
+                    "10 min/kg with Hacksaw, Hatchet, or Survival Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces meat harvesting times by:\n" +
+                    " 10% at level  2\n" +
+                    " 25% at  level 3\n" +
+                    " 30% at  level 4\n" +
+                    " 50% at  level 5\n" +
+                    "\nCarcass Harvesting Skill allows frozen caracasses to be harvested by hand:\n" +
+                    " 50% frozen at Level  3\n" +
+                    " 75% frozen at level  4\n" +
+                    "100% frozen at level  5")]
+        [Slider(0.01f, 3.00f, NumberFormat = "{0:F2}x")]
+        public float FrozenMeatTimeSliderGlobal = 1f;
+
+        [Name("Gut")]
+        [Description("Global Gut harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest rates are:\n" +
+                    "40 min/unit with Bare Hands.\n" +
+                    "30 min/unit with Hacksaw or Improvised Hatchet.\n" +
+                    "20 min/unit with Hatchet.\n" +
+                    "15 min/unit with Improvised Knife.\n" +
+                    "10 min/unit with Hunting Knife, Cougar Claw Knife, Survival Knife, or Scrap Metal Shard.\n" +
+                    "\nCarcass Harvesting Skill reduces gut harvesting times by:\n" +
+                    "10% at Level  3\n" +
+                    "20% at Level  4\n" +
+                    "30% at Level  5")]
+        [Slider(0.01f, 3.00f, NumberFormat = "{0:F2}x")]
+        public float GutTimeSliderGlobal = 1f;
+
+        [Section("Hide/Feathers Harvest Times")]
+        
+        [Name("Rabbit")]
+        [Description("Rabbit Hide harvest time multiplier. Vanilla value is 1.\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
+        public float HideTimeSliderRabbit = VanillaSettings.VanillaHideTimeSliderRabbit;
+
+        [Name("Ptarmigan (DLC)")]
+        [Description("Ptarmigan down feathers harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
+        public float HideTimeSliderPtarmigan = VanillaSettings.VanillaHideTimeSliderPtarmigan;
+
+        [Name("Doe")]
+        [Description("Doe Hide harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
+        public float HideTimeSliderDoe = VanillaSettings.VanillaHideTimeSliderDoe;
+
+        [Name("Stag")]
+        [Description("Stag Hide harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                   "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
+        public float HideTimeSliderStag = VanillaSettings.VanillaHideTimeSliderStag;
+
+        [Name("Moose")]
+        [Description("Moose Hide harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                   "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
+        public float HideTimeSliderMoose = VanillaSettings.VanillaHideTimeSliderMoose;
+
+        [Name("Wolf")]
+        [Description("Wolf Hide harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
+        public float HideTimeSliderWolf = VanillaSettings.VanillaHideTimeSliderWolf;
+
+        [Name("TimberWolf")]
+        [Description("TimberWolf Hide harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
+        public float HideTimeSliderTimberWolf = VanillaSettings.VanillaHideTimeSliderTimberWolf;
+
+        [Name("Poisoned Wolf (DLC)")]
+        [Description("Poisoned Wolf Hide harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
+        public float HideTimeSliderPoisonedWolf = VanillaSettings.VanillaHideTimeSliderPoisonedWolf;
+
+        [Name("Bear")]
+        [Description("Bear Hide harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
+        public float HideTimeSliderBear = VanillaSettings.VanillaHideTimeSliderBear;
+
+        [Name("Cougar (DLC)")]
+        [Description("Cougar Hide harvest time multiplier. Vanilla value is 1\n" +
+                    "\nBase harvest times are:\n" +
+                    "60 min with Hacksaw or Improvised Hatchet.\n" +
+                    "45 min with Hatchet.\n" +
+                    "40 min with Bare Hands or Improvised Knife.\n" +
+                    "30 min with Scrap Metal Shard, Survival Knife, Hunting Knife, or Cougar Claw Knife.\n" +
+                    "\nCarcass Harvesting Skill reduces time by:\n" +
+                    "10% at level  3\n" +
+                    "20% at level 4\n" +
+                    "30% at level 5")]
+        [Slider(0.01f, 2.0f, NumberFormat = "{0:F2}x")]
         public float HideTimeSliderCougar = VanillaSettings.VanillaHideTimeSliderCougar;
 
-        [Name("Quarter Time")]
-        [Description("Time to quarter a Cougar. Vanilla value is 120")]
+
+
+        [Section("Quartering Times")]
+
+        [Name("Doe")]
+        [Description("Time to quarter a Doe. Vanilla value is 60m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
+        public int QuarterDurationMinutesSliderDoe = VanillaSettings.VanillaQuarterDurationMinutesSliderDoe;
+
+        [Name("Stag")]
+        [Description("Time to quarter a Stag. Vanilla value is 75m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
+        public int QuarterDurationMinutesSliderStag = VanillaSettings.VanillaQuarterDurationMinutesSliderStag;
+
+        [Name("Moose")]
+        [Description("Time to quarter a Moose. Vanilla value is 120m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
+        public int QuarterDurationMinutesSliderMoose = VanillaSettings.VanillaQuarterDurationMinutesSliderMoose;
+
+        [Name("Wolf")]
+        [Description("Time to quarter a Wolf. Vanilla value is 60m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
+        public int QuarterDurationMinutesSliderWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderWolf;
+
+        [Name("TimberWolf")]
+        [Description("Time to quarter a TimberWolf. Vanilla value is 60m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
+        public int QuarterDurationMinutesSliderTimberWolf = VanillaSettings.VanillaQuarterDurationMinutesSliderTimberWolf;
+
+        [Name("Bear")]
+        [Description("Time to quarter a Bear. Vanilla value is 120m")]
+        [Slider(1, 180, NumberFormat = "{0:#}m")]
+        public int QuarterDurationMinutesSliderBear = VanillaSettings.VanillaQuarterDurationMinutesSliderBear;
+
+        [Name("Cougar (DLC)")]
+        [Description("Time to quarter a Cougar. Vanilla value is 120m")]
         [Slider(1, 180, NumberFormat = "{0:#}m")]
         public int QuarterDurationMinutesSliderCougar = VanillaSettings.VanillaQuarterDurationMinutesSliderCougar;
 
