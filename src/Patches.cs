@@ -1,8 +1,10 @@
 ﻿using HarmonyLib;
 using Il2Cpp;
 using Il2CppTLD.IntBackedUnit;
+using JetBrains.Annotations;
 using MelonLoader;
 using System;
+using static UnityEngine.RemoteConfigSettingsHelper;
 
 
 namespace CarcassYieldTweaker
@@ -45,9 +47,10 @@ namespace CarcassYieldTweaker
             }
         }
 
-        public static class Time_Patches
+        public static class Panel_BodyHarvest_Patches
 
         {
+
             [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.GetHarvestDurationMinutes))]
             public class Patch_Panel_BodyHarvest_GetHarvestDurationMinutes
             {
@@ -222,7 +225,7 @@ namespace CarcassYieldTweaker
 
 
 
-            // Button Press Time_Patches: Set pendingChange and record which button
+            // Button Press Panel_BodyHarvest_Patches: Set pendingChange and record which button
             //
             [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.OnIncreaseMeatHarvest))]
             public class Patch_Panel_BodyHarvest_OnIncreaseMeatHarvest
@@ -328,7 +331,7 @@ namespace CarcassYieldTweaker
 
 
 
-            [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), "Enable", new Type[] { typeof(bool), typeof(Il2Cpp.BodyHarvest), typeof(bool), typeof(Il2Cpp.ComingFromScreenCategory) })]
+            [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.Enable), new Type[] { typeof(bool), typeof(Il2Cpp.BodyHarvest), typeof(bool), typeof(Il2Cpp.ComingFromScreenCategory) })]
             public class Patch_Panel_Body_Harvest_OpenAndClose
             {
 
@@ -358,17 +361,47 @@ namespace CarcassYieldTweaker
             }
 
 
-
-        }
-
-        public static class Quantity_Patches
+[HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.RefreshTitle))]
+    public class PanelBodyHarvest_RefreshTitle_Patch
+    {
+        static void Postfix(Il2Cpp.Panel_BodyHarvest __instance)
         {
-            //Quantity Patching
+            // Access the UILabel field for the title
+            var titleLabel = __instance.m_Label_Title;
+
+            // Retrieve the associated BodyHarvest instance
+            var bodyHarvest = __instance.m_BodyHarvest; // Adjust this field if necessary
+
+            // Fetch and explicitly round the carcass condition to the nearest integer
+            int carcassCondition = bodyHarvest != null ? (int)Math.Round(bodyHarvest.m_Condition) : 0;
+
+            // Modify the title text to include carcass condition
+            if (titleLabel != null)
+            {
+                string originalTitle = titleLabel.text;
+                titleLabel.text = $"{originalTitle}\n{carcassCondition}%";
+            }
+        }
+    }
+
+
+}
+
+public static class BodyHarvest_Patches
+        {
+            //Quantity & Decay Patching
             [HarmonyPatch(typeof(Il2Cpp.BodyHarvest), nameof(BodyHarvest.InitializeResourcesAndConditions))]
             internal class Patch_BodyHarvest_InitializeResourcesAndConditions
             {
+
+                public static float newDecay = 0f;
+
                 private static void Prefix(Il2Cpp.BodyHarvest __instance)
                 {
+
+
+
+
                     if (__instance == null || string.IsNullOrEmpty(__instance.name)) return;
 
                     try
@@ -380,6 +413,7 @@ namespace CarcassYieldTweaker
                             __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.MeatSliderMaxRabbit);
                             __instance.m_HideAvailableUnits = Settings.settings.HideSliderRabbit;
                             __instance.m_GutAvailableUnits = Settings.settings.GutSliderRabbit;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderRabbit;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Ptarmigan"))
@@ -387,6 +421,7 @@ namespace CarcassYieldTweaker
                             __instance.m_MeatAvailableMin = ItemWeight.FromKilograms(Settings.settings.MeatSliderMinPtarmigan);
                             __instance.m_MeatAvailableMax = ItemWeight.FromKilograms(Settings.settings.MeatSliderMaxPtarmigan);
                             __instance.m_HideAvailableUnits = Settings.settings.HideSliderPtarmigan;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderPtarmigan;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Doe"))
@@ -398,6 +433,7 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderDoe);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderDoe;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderDoe / 100;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderDoe;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Stag"))
@@ -409,6 +445,7 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderStag);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderStag;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderStag / 100;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderStag;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Moose"))
@@ -420,6 +457,7 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderMoose);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderMoose;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderMoose / 100;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderMoose;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Wolf"))
@@ -431,6 +469,7 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderWolf);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderWolf;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderWolf / 100;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderWolf;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_TimberWolf"))
@@ -442,12 +481,14 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderTimberWolf);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderTimberWolf;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderTimberWolf / 100;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderTimberWolf;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_StarvingWolf"))
                         {
                             __instance.m_HideAvailableUnits = Settings.settings.HideSliderPoisonedWolf;
                             __instance.m_GutAvailableUnits = Settings.settings.GutSliderPoisonedWolf;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderPoisonedWolf;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Bear"))
@@ -459,6 +500,7 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderBear);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderBear;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderBear / 100;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderBear;
                         }
 
                         if (__instance.name.StartsWith("WILDLIFE_Cougar"))
@@ -470,6 +512,7 @@ namespace CarcassYieldTweaker
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.settings.QuarterSizeSliderCougar);
                             __instance.m_QuarterDurationMinutes = Settings.settings.QuarterDurationMinutesSliderCougar;
                             __instance.m_FatToMeatRatio = Settings.settings.FatToMeatPercentSliderCougar / 100;
+                            __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderCougar;
                         }
 
                         __instance.m_QuarterBagWasteMultiplier = Settings.settings.QuarterWasteSlider;
@@ -477,6 +520,49 @@ namespace CarcassYieldTweaker
                     catch (Exception ex)
                     {
                         MelonLogger.Error($"Error in BodyHarvest_InitializeResourcesAndConditions: {ex}");
+
+                        // Interesting BodyHarvest variables:
+                        //
+                        // name, Type: System.String
+                        // tag, Type: System.String
+                        // useGUILayout, Type: System.Boolean
+                        // enabled, Type: System.Boolean
+                        // m_AllowDecay, Type: System.Boolean
+                        // m_AllowFreezing, Type: System.Boolean
+                        // m_BodyHarvestModelWasActive, Type: System.Boolean
+                        // m_CanQuarter, Type: System.Boolean
+                        // m_Condition, Type: System.Single
+                        // m_DecayConditionPerHour, Type: System.Single
+                        // m_DestroyPending, Type: System.Boolean
+                        // m_FatToMeatRatio, Type: System.Single
+                        // m_Frozen, Type: System.Boolean
+                        // m_FrozenDisplayNameId, Type: System.String
+                        // m_GutAvailableUnits, Type: System.Int32
+                        // m_GutIsAvailable, Type: System.Boolean
+                        // m_HasHarvested, Type: System.Boolean
+                        // m_HasInitialized, Type: System.Boolean
+                        // m_HasUpdatedColliders, Type: System.Boolean
+                        // m_HaveBonusItemsBeenHarvested, Type: System.Boolean
+                        // m_HideAvailableUnits, Type: System.Int32
+                        // m_HideIsAvailable, Type: System.Boolean
+                        // m_LastHarvestTimeHours, Type: System.Single
+                        // m_MissionIdSerialized, Type: System.String
+                        // m_PercentFrozen, Type: System.Single
+                        // m_QuarterAudio, Type: System.String
+                        // m_QuarterBagWasteMultiplier, Type: System.Single
+                        // m_QuarterDurationMinutes, Type: System.Single
+                        // m_QuarterPrefabSpawnRadius, Type: System.Single
+                        // m_Ravaged, Type: System.Boolean
+                        // m_RolledSpawnChance, Type: System.Boolean
+                        // m_SpawnChance, Type: System.Single
+                        // m_SpawnTimelineHarvestModelInHand, Type: System.Boolean
+                        // m_StartConditionMax, Type: System.Single
+                        // m_StartConditionMin, Type: System.Single
+                        // m_StartFrozen, Type: System.Boolean
+                        // m_StartHarvested, Type: System.Boolean
+                        // m_StartRavaged, Type: System.Boolean
+
+
                     }
                 }
             }

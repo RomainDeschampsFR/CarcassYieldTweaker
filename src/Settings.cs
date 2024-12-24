@@ -979,5 +979,71 @@ namespace CarcassYieldTweaker
         [Slider(1, 180, NumberFormat = "{0:#}m")]
         public int QuarterDurationMinutesSliderCougar = VanillaSettings.VanillaQuarterDurationMinutesSliderCougar;
 
+
+
+
+        [Section("Carcass Decay")]
+
+        [Name("Rabbit")]
+        [Description("Multiply the carcass decay rate for a Rabbit. Vanilla value is 1\n" +
+            "\nDefault decay for held carcasses is 10% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderRabbit = 1f;
+
+        [Name("Ptarmigan")]
+        [Description("Change the carcass decay rate for a Ptarmigan. Vanilla value is 1\n" +
+            "\nDefault decay for held carcasses is 10% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderPtarmigan = 1f;
+
+        [Name("Doe")]
+        [Description("Change the carcass decay rate for a Doe. Vanilla value is 1\n" +
+            "\nDefault decay for un-movable carcasses is 33.3% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderDoe = 1f;
+
+        [Name("Stag")]
+        [Description("Change the carcass decay rate for a Stag. Vanilla value is 1\n" +
+            "\nDefault decay for un-movable carcasses is 33.3% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderStag = 1f;
+
+        [Name("Moose")]
+        [Description("Change the carcass decay rate for a Moose. Vanilla value is 1\n" +
+            "\nDefault decay for un-movable carcasses is 33.3% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderMoose = 1f;
+
+        [Name("Wolf")]
+        [Description("Change the carcass decay rate for a Wolf. Vanilla value is 1\n" +
+            "\nDefault decay for un-movable carcasses is 33.3% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderWolf = 1f;
+
+        [Name("Timberwolf")]
+        [Description("Change the carcass decay rate for a TimberWolf. Vanilla value is 1\n" +
+            "\nDefault decay for un-movable carcasses is 33.3% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderTimberWolf = 1f;
+
+        [Name("Poisoned Wolf")]
+        [Description("Change the carcass decay rate for a Poisoned Wolf. Vanilla value is 1\n" +
+            "\nDefault decay for un-movable carcasses is 33.3% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderPoisonedWolf = 1f;
+
+        [Name("Bear")]
+        [Description("Change the carcass decay rate for a Bear. Vanilla value is 1\n" +
+            "\nDefault decay for un-movable carcasses is 33.3% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderBear = 1f;
+
+        [Name("Cougar")]
+        [Description("Change the carcass decay rate for a Cougar. Vanilla value is 1\n" +
+            "\nDefault decay for un-movable carcasses is 33.3% per day")]
+        [Slider(0.1f, 2f)]
+        public float DecaySliderCougar = 1f;
+
+
     }
 }
