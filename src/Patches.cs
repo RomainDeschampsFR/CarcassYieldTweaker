@@ -15,9 +15,9 @@ namespace CarcassYieldTweaker
     public static class Patches
     {
 
-        private static bool debug_mode = true; // Set to false to disable debug logging
+        public static bool debug_mode = true; // Set to false to disable debug logging
 
-        private static void LogDebugMessage(string message)
+        public static void LogDebugMessage(string message)
         {
             if (debug_mode)
             {
@@ -515,7 +515,7 @@ public static class BodyHarvest_Patches
                             __instance.m_DecayConditionPerHour *= Settings.settings.DecaySliderCougar;
                         }
 
-                        __instance.m_QuarterBagWasteMultiplier = Settings.settings.QuarterWasteSlider;
+                        __instance.m_QuarterBagWasteMultiplier = Settings.settings.QuarterWasteSliderGlobal;
                     }
                     catch (Exception ex)
                     {
