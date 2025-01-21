@@ -329,7 +329,7 @@ namespace CarcassYieldTweaker
                 }
             }
 
-            [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.Enable), new Type[] { typeof(bool), typeof(Il2Cpp.BodyHarvest), typeof(bool), typeof(Il2Cpp.ComingFromScreenCategory) })]
+            /*[HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.Enable), new Type[] { typeof(bool), typeof(Il2Cpp.BodyHarvest), typeof(bool), typeof(Il2Cpp.ComingFromScreenCategory) })]
             internal class Patch_ClearHarvestSettings
             {
                 static void Prefix(Il2Cpp.Panel_BodyHarvest __instance, bool enable)
@@ -370,7 +370,7 @@ namespace CarcassYieldTweaker
                         MelonLogger.Error($"Error in ClearSettings: {ex}");
                     }
                 }
-            }
+            }*/
 
             /*
             [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.RefreshTitle))]
@@ -520,7 +520,7 @@ namespace CarcassYieldTweaker
                             __instance.m_GutAvailableUnits = Settings.instance.GutCountSliderDoe;
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.instance.QuarterSizeSliderDoe);
                             __instance.m_QuarterDurationMinutes = Settings.instance.QuarterDurationMinutesSliderDoe;
-                            __instance.m_FatToMeatRatio = Settings.instance.FatToMeatPercentSliderDoe / 100;
+                            __instance.m_FatToMeatRatio = (float)Settings.instance.FatToMeatPercentSliderDoe / 100;
                             __instance.m_DecayConditionPerHour *= Settings.instance.DecayRateSliderDoe;
                         }
 
@@ -532,7 +532,7 @@ namespace CarcassYieldTweaker
                             __instance.m_GutAvailableUnits = Settings.instance.GutCountSliderStag;
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.instance.QuarterSizeSliderStag);
                             __instance.m_QuarterDurationMinutes = Settings.instance.QuarterDurationMinutesSliderStag;
-                            __instance.m_FatToMeatRatio = Settings.instance.FatToMeatPercentSliderStag / 100;
+                            __instance.m_FatToMeatRatio = (float)Settings.instance.FatToMeatPercentSliderStag / 100;
                             __instance.m_DecayConditionPerHour *= Settings.instance.DecayRateSliderStag;
                         }
 
@@ -544,7 +544,7 @@ namespace CarcassYieldTweaker
                             __instance.m_GutAvailableUnits = Settings.instance.GutCountSliderMoose;
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.instance.QuarterSizeSliderMoose);
                             __instance.m_QuarterDurationMinutes = Settings.instance.QuarterDurationMinutesSliderMoose;
-                            __instance.m_FatToMeatRatio = Settings.instance.FatToMeatPercentSliderMoose / 100;
+                            __instance.m_FatToMeatRatio = (float)Settings.instance.FatToMeatPercentSliderMoose / 100;
                             __instance.m_DecayConditionPerHour *= Settings.instance.DecayRateSliderMoose;
                         }
 
@@ -556,7 +556,7 @@ namespace CarcassYieldTweaker
                             __instance.m_GutAvailableUnits = Settings.instance.GutCountSliderWolf;
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.instance.QuarterSizeSliderWolf);
                             __instance.m_QuarterDurationMinutes = Settings.instance.QuarterDurationMinutesSliderWolf;
-                            __instance.m_FatToMeatRatio = Settings.instance.FatToMeatPercentSliderWolf / 100;
+                            __instance.m_FatToMeatRatio = (float)Settings.instance.FatToMeatPercentSliderWolf / 100;
                             __instance.m_DecayConditionPerHour *= Settings.instance.DecayRateSliderWolf;
                         }
 
@@ -568,7 +568,7 @@ namespace CarcassYieldTweaker
                             __instance.m_GutAvailableUnits = Settings.instance.GutCountSliderTimberWolf;
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.instance.QuarterSizeSliderTimberWolf);
                             __instance.m_QuarterDurationMinutes = Settings.instance.QuarterDurationMinutesSliderTimberWolf;
-                            __instance.m_FatToMeatRatio = Settings.instance.FatToMeatPercentSliderTimberWolf / 100;
+                            __instance.m_FatToMeatRatio = (float)Settings.instance.FatToMeatPercentSliderTimberWolf / 100;
                             __instance.m_DecayConditionPerHour *= Settings.instance.DecayRateSliderTimberWolf;
                         }
 
@@ -587,7 +587,7 @@ namespace CarcassYieldTweaker
                             __instance.m_GutAvailableUnits = Settings.instance.GutCountSliderBear;
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.instance.QuarterSizeSliderBear);
                             __instance.m_QuarterDurationMinutes = Settings.instance.QuarterDurationMinutesSliderBear;
-                            __instance.m_FatToMeatRatio = Settings.instance.FatToMeatPercentSliderBear / 100;
+                            __instance.m_FatToMeatRatio = (float)Settings.instance.FatToMeatPercentSliderBear / 100;
                             __instance.m_DecayConditionPerHour *= Settings.instance.DecayRateSliderBear;
                         }
 
@@ -599,7 +599,7 @@ namespace CarcassYieldTweaker
                             __instance.m_GutAvailableUnits = Settings.instance.GutCountSliderCougar;
                             __instance.m_QuarterBagMeatCapacity = ItemWeight.FromKilograms(Settings.instance.QuarterSizeSliderCougar);
                             __instance.m_QuarterDurationMinutes = Settings.instance.QuarterDurationMinutesSliderCougar;
-                            __instance.m_FatToMeatRatio = Settings.instance.FatToMeatPercentSliderCougar / 100;
+                            __instance.m_FatToMeatRatio = (float)Settings.instance.FatToMeatPercentSliderCougar / 100;
                             __instance.m_DecayConditionPerHour *= Settings.instance.DecayRateSliderCougar;
                         }
 
