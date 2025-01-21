@@ -1,17 +1,16 @@
 # Carcass Yield Tweaker
 
 ## Features
-* Allow total harvest time limit change; 1-24 hour range; time bar updates accordingly
-* Always show frozen percentage in harvest panel; includes color coding
-* Show condition in harvest panel; includes color coding
-* Change Carcass Decay Rates (per animal, multiplier)
+* Change amount of available Meat, Guts, and  Hide/Feathers upon killing any animal in The Long Dark
+* Change the size of quartering bags and the quartering waste amount
 * Change Fat to Meat Ratio for each animal
+
+* Allow total harvest time limit change; 1-24 hour range; time bar updates accordingly
 * Change the time it takes to quarter each animal 
 * Change the time it takes to harvest meat from thawed and frozen carcasses (global multiplier))
 * Change the time it take to harvest guts (global multiplier)
-* Change the time it take to harvest hides and feathers (per animal) 
-* Change amount of available Meat, Guts, and  Hide/Feathers upon killing any animal in The Long Dark
-* Change the size of quartering bags and the quartering waste amount
+* Change the time it take to harvest hides and feathers (per animal)
+* Change Carcass Decay Rates (per animal, multiplier)
 
 * Thanks to JoshuaAC the original creator of this mod (UseableMeatMod).
 
