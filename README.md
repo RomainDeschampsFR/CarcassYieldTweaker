@@ -1,11 +1,9 @@
 # Carcass Yield Tweaker
 
-## New Features
+## Features
 * Allow total harvest time limit change; 1-24 hour range; time bar updates accordingly
 * Always show frozen percentage in harvest panel; includes color coding
 * Show condition in harvest panel; includes color coding
-
-## Features
 * Change Carcass Decay Rates (per animal, multiplier)
 * Change Fat to Meat Ratio for each animal
 * Change the time it takes to quarter each animal 
@@ -23,3 +21,5 @@
 1. If you haven't installed melonloader yet do so now by downloading and running https://github.com/LavaGang/MelonLoader/releases/tag/v0.6.6
 2. Download the newest release from the #Releases Tab. Don't forget to Download and install Modsettings as this mod requires it to work!
 3. Paste the .dll file into your Mods directory created when you installed MelonLoader.
+
+[![Github All Releases](https://img.shields.io/github/downloads/RomainDeschampsFR/CarcassYieldTweaker/total.svg)]()
