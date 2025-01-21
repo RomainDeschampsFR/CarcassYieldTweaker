@@ -372,7 +372,7 @@ namespace CarcassYieldTweaker
                 }
             }
 
-
+            /*
             [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.RefreshTitle))]
             public class PanelBodyHarvest_ConditionLabel_Patch
             {
@@ -422,8 +422,8 @@ namespace CarcassYieldTweaker
                         conditionLabel.gameObject.SetActive(true);
                     }
                 }
-            }
-
+            }*/
+            /*
             [HarmonyPatch(typeof(Il2Cpp.Panel_BodyHarvest), nameof(Panel_BodyHarvest.RefreshTitle))]
             public class PanelBodyHarvest_FrozenLabel_Patch
             {
@@ -480,7 +480,7 @@ namespace CarcassYieldTweaker
                         customFrozenLabel.gameObject.SetActive(true);
                     }
                 }
-            }
+            }*/
         } // End of Panel_BodyHarvest_Patches
 
         internal static class BodyHarvest_Patches

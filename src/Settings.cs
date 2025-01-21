@@ -432,19 +432,19 @@ namespace CarcassYieldTweaker
             this.QuarterWasteSliderGlobal = 1.2f;
         }
 
-        [Section("Harvest Panel Settings")]
+        //[Section("Harvest Panel Settings")]
         
-        [Name("Show Condition")]
-        [Description("Show the condition of the carcass in the harvest Panel.")]
-        public bool ShowCarcassCondition = true;
+        //[Name("Show Condition")]
+        //[Description("Show the condition of the carcass in the harvest Panel.")]
+        //public bool ShowCarcassCondition = true;
 
         //[Name("Condition Colors")]
         //[Description("Color the condition text.")]
         //public bool ShowCarcassConditionColors = false;
 
-        [Name("Always Show Frozen")]
-        [Description("Always show the frozen percentage in the harvest Panel, even if the carcass is not frozen.")]
-        public bool AlwaysShowFrozenPercent = false;
+        //[Name("Always Show Frozen")]
+        //[Description("Always show the frozen percentage in the harvest Panel, even if the carcass is not frozen.")]
+        //public bool AlwaysShowFrozenPercent = false;
 
         //[Name("Frozen Colors")]
         //[Description("Color the frozen text.")]
