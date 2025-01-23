@@ -20,8 +20,9 @@
     <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.35.0" />
+    <PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.36.0" />
     <PackageReference Include="STBlade.Modding.TLD.ModSettings" Version="1.9.0" />
+    <PackageReference Include="System.Text.Json" Version="6.0.11" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy /y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\TheLongDark\Mods\&quot;&#xD;&#xA;" />
