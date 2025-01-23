@@ -1,5 +1,10 @@
 # Carcass Yield Tweaker
 
+Note: Harvest Yield settings are only applied to live animals. Existing carcasses are not affected.
+
+## New Features
+* Disable Carcass Decay
+
 ## Features
 * Change amount of available Meat, Guts, and  Hide/Feathers upon killing any animal in The Long Dark
 * Change the size of quartering bags and the quartering waste amount
@@ -12,7 +17,7 @@
 * Change the time it take to harvest hides and feathers (per animal)
 * Change Carcass Decay Rates (per animal, multiplier)
 
-* Thanks to JoshuaAC the original creator of this mod (UseableMeatMod).
+Thanks to JoshuaAC the original creator of this mod (UseableMeatMod).
 
 ![CarcassYieldTweaker](https://github.com/RomainDeschampsFR/CarcassYieldTweaker/assets/38351288/90e50b07-3987-4deb-8588-6055d3c39a2c)
 

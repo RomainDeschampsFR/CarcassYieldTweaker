@@ -3,6 +3,7 @@ using System.Reflection;
 using System;
 using MelonLoader;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace CarcassYieldTweaker
 {
@@ -22,7 +23,7 @@ namespace CarcassYieldTweaker
 
         protected override void OnChange(FieldInfo field, object oldValue, object newValue)
         {
-            Main.DebugLog($"OnChange triggered: Field={field.Name}, OldValue={oldValue}, NewValue={newValue}");
+            //Main.DebugLog($"OnChange triggered: Field={field.Name}, OldValue={oldValue}, NewValue={newValue}");
 
             if (isApplyingPreset)
             {
@@ -54,12 +55,11 @@ namespace CarcassYieldTweaker
                         isApplyingPreset = false; // Reset flag after change
                     }
                 }
-
-                // Dynamically update the custom instance backup for unconfirmed changes
-                Main.DebugLog($"Updating temporary value for: {field.Name} = {newValue}");
+                //Main.DebugLog($"Updating temporary value for: {field.Name} = {newValue}");
             }
 
             base.OnChange(field, oldValue, newValue);
+
         }
 
         private void ApplyPreset(int presetIndex)
@@ -130,7 +130,16 @@ namespace CarcassYieldTweaker
             this.MeatTimeSliderGlobal = VanillaSettings.MeatTimeSliderGlobal;
             this.FrozenMeatTimeSliderGlobal = VanillaSettings.FrozenMeatTimeSliderGlobal;
             this.GutTimeSliderGlobal = VanillaSettings.GutTimeSliderGlobal;
-            this.MaxHarvestTimeSliderGlobal = VanillaSettings.MaxHarvestTimeSliderGlobal;   
+            this.MaxHarvestTimeSliderGlobal = VanillaSettings.MaxHarvestTimeSliderGlobal;
+            //this.AdjustExistingCarcasses = VanillaSettings.ModifyNativeCarcassesGlobal;
+            this.DisableCarcassDecayGlobal = VanillaSettings.DisableCarcassDecayGlobal;
+
+            // Settings
+            this.ShowPanelCondition = VanillaSettings.ShowPanelCondition;
+            this.ShowPanelConditionColors = VanillaSettings.ShowPanelConditionColors;
+            this.AlwaysShowPanelFrozenPercent = VanillaSettings.AlwaysShowPanelFrozenPercent;
+            this.ShowPanelFrozenColors = VanillaSettings.ShowPanelFrozenColors;
+
 
             // Rabbit
             this.MeatSliderMinRabbit = VanillaSettings.MeatSliderMinRabbit;
@@ -138,14 +147,14 @@ namespace CarcassYieldTweaker
             this.HideCountSliderRabbit = VanillaSettings.HideCountSliderRabbit;
             this.GutCountSliderRabbit = VanillaSettings.GutCountSliderRabbit;
             this.HideTimeSliderRabbit = VanillaSettings.HideTimeSliderRabbit;
-            this.DecayRateSliderRabbit = VanillaSettings.DecayRateRabbit;
+            //this.DecayRateMultiplierSliderRabbit = VanillaSettings.DecayRateMultiplierSliderRabbit;
 
             // Ptarmigan (DLC)
             this.MeatSliderMinPtarmigan = VanillaSettings.MeatSliderMinPtarmigan;
             this.MeatSliderMaxPtarmigan = VanillaSettings.MeatSliderMaxPtarmigan;
             this.HideCountSliderPtarmigan = VanillaSettings.HideCountSliderPtarmigan;
             this.HideTimeSliderPtarmigan = VanillaSettings.HideTimeSliderPtarmigan;
-            this.DecayRateSliderPtarmigan = VanillaSettings.DecayRatePtarmigan;
+            //this.DecayRateMultiplierSliderPtarmigan = VanillaSettings.DecayRateMultiplierSliderPtarmigan;
 
             // Doe
             this.MeatSliderMinDoe = VanillaSettings.MeatSliderMinDoe;
@@ -156,7 +165,7 @@ namespace CarcassYieldTweaker
             this.FatToMeatPercentSliderDoe = VanillaSettings.FatToMeatPercentSliderDoe;
             this.HideTimeSliderDoe = VanillaSettings.HideTimeSliderDoe;
             this.QuarterDurationMinutesSliderDoe = VanillaSettings.QuarterDurationMinutesSliderDoe;
-            this.DecayRateSliderDoe = VanillaSettings.DecayRateDoe;
+            //this.DecayRateMultiplierSliderDoe = VanillaSettings.DecayRateMultiplierSliderDoe;
 
             // Stag
             this.MeatSliderMinStag = VanillaSettings.MeatSliderMinStag;
@@ -167,7 +176,7 @@ namespace CarcassYieldTweaker
             this.FatToMeatPercentSliderStag = VanillaSettings.FatToMeatPercentSliderStag;
             this.HideTimeSliderStag = VanillaSettings.HideTimeSliderStag;
             this.QuarterDurationMinutesSliderStag = VanillaSettings.QuarterDurationMinutesSliderStag;
-            this.DecayRateSliderStag = VanillaSettings.DecayRateStag;    
+            //this.DecayRateMultiplierSliderStag = VanillaSettings.DecayRateMultiplierSliderStag;    
 
             // Moose
             this.MeatSliderMinMoose = VanillaSettings.MeatSliderMinMoose;
@@ -178,7 +187,7 @@ namespace CarcassYieldTweaker
             this.FatToMeatPercentSliderMoose = VanillaSettings.FatToMeatPercentSliderMoose;
             this.HideTimeSliderMoose = VanillaSettings.HideTimeSliderMoose;
             this.QuarterDurationMinutesSliderMoose = VanillaSettings.QuarterDurationMinutesSliderMoose;
-            this.DecayRateSliderMoose = VanillaSettings.DecayRateMoose;
+            //this.DecayRateMultiplierSliderMoose = VanillaSettings.DecayRateMultiplierSliderMoose;
 
             // Wolf
             this.MeatSliderMinWolf = VanillaSettings.MeatSliderMinWolf;
@@ -189,8 +198,7 @@ namespace CarcassYieldTweaker
             this.FatToMeatPercentSliderWolf = VanillaSettings.FatToMeatPercentSliderWolf;
             this.HideTimeSliderWolf = VanillaSettings.HideTimeSliderWolf;
             this.QuarterDurationMinutesSliderWolf = VanillaSettings.QuarterDurationMinutesSliderWolf;
-            this.DecayRateSliderWolf = VanillaSettings.DecayRateWolf;
-
+            //this.DecayRateMultiplierSliderWolf = VanillaSettings.DecayRateMultiplierSliderWolf;
 
             // TimberWolf
             this.MeatSliderMinTimberWolf = VanillaSettings.MeatSliderMinTimberWolf;
@@ -201,16 +209,13 @@ namespace CarcassYieldTweaker
             this.FatToMeatPercentSliderTimberWolf = VanillaSettings.FatToMeatPercentSliderTimberWolf;
             this.HideTimeSliderTimberWolf = VanillaSettings.HideTimeSliderTimberWolf;
             this.QuarterDurationMinutesSliderTimberWolf = VanillaSettings.QuarterDurationMinutesSliderTimberWolf;
-            this.DecayRateSliderTimberWolf = VanillaSettings.DecayRateTimberWolf;
-
-
+            //this.DecayRateMultiplierSliderTimberWolf = VanillaSettings.DecayRateMultiplierSliderTimberWolf;
 
             // Poisoned Wolf (DLC)
             this.HideCountSliderPoisonedWolf = VanillaSettings.HideCountSliderPoisonedWolf;
             this.GutCountSliderPoisonedWolf = VanillaSettings.GutCountSliderPoisonedWolf;
             this.HideTimeSliderPoisonedWolf = VanillaSettings.HideTimeSliderPoisonedWolf;
-            this.DecayRateSliderPoisonedWolf = VanillaSettings.DecayRatePoisonedWolf;
-
+            //this.DecayRateMultiplierSliderPoisonedWolf = VanillaSettings.DecayRateMultiplierSliderPoisonedWolf;
 
             // Bear
             this.MeatSliderMinBear = VanillaSettings.MeatSliderMinBear;
@@ -221,8 +226,7 @@ namespace CarcassYieldTweaker
             this.FatToMeatPercentSliderBear = VanillaSettings.FatToMeatPercentSliderBear;
             this.HideTimeSliderBear = VanillaSettings.HideTimeSliderBear;
             this.QuarterDurationMinutesSliderBear = VanillaSettings.QuarterDurationMinutesSliderBear;
-            this.DecayRateSliderBear = VanillaSettings.DecayRateBear;
-
+            //this.DecayRateMultiplierSliderBear = VanillaSettings.DecayRateMultiplierSliderBear;
 
             // Cougar
             this.MeatSliderMinCougar = VanillaSettings.MeatSliderMinCougar;
@@ -233,7 +237,7 @@ namespace CarcassYieldTweaker
             this.FatToMeatPercentSliderCougar = VanillaSettings.FatToMeatPercentSliderCougar;
             this.HideTimeSliderCougar = VanillaSettings.HideTimeSliderCougar;
             this.QuarterDurationMinutesSliderCougar = VanillaSettings.QuarterDurationMinutesSliderCougar;
-            this.DecayRateSliderCougar = VanillaSettings.DecayRateCougar;
+            //this.DecayRateMultiplierSliderCougar = VanillaSettings.DecayRateMultiplierSliderCougar;
         }
 
         private void ApplyRealisticPreset()
@@ -243,9 +247,9 @@ namespace CarcassYieldTweaker
 
             // Global
             this.QuarterWasteSliderGlobal = 1.2f; // Less waste
-            this.MeatTimeSliderGlobal = 1.0f; // Unchanged
-            this.FrozenMeatTimeSliderGlobal = 1.0f; // Unchanged
-            this.GutTimeSliderGlobal = 1.0f; // Unchanged
+            this.MeatTimeSliderGlobal = 1f; // Unchanged
+            this.FrozenMeatTimeSliderGlobal = 1f; // Unchanged
+            this.GutTimeSliderGlobal = 1f; // Unchanged
 
             // Rabbit
             this.MeatSliderMinRabbit = 0.75f;
@@ -432,26 +436,8 @@ namespace CarcassYieldTweaker
             this.QuarterWasteSliderGlobal = 1.2f;
         }
 
-        //[Section("Harvest Panel Settings")]
-        
-        //[Name("Show Condition")]
-        //[Description("Show the condition of the carcass in the harvest Panel.")]
-        //public bool ShowCarcassCondition = true;
-
-        //[Name("Condition Colors")]
-        //[Description("Color the condition text.")]
-        //public bool ShowCarcassConditionColors = false;
-
-        //[Name("Always Show Frozen")]
-        //[Description("Always show the frozen percentage in the harvest Panel, even if the carcass is not frozen.")]
-        //public bool AlwaysShowFrozenPercent = false;
-
-        //[Name("Frozen Colors")]
-        //[Description("Color the frozen text.")]
-        //public bool ShowFrozenPercentColors = false;
-
-
         [Section("Presets")]
+
         [Name("Select a Preset")]
         [Description("Choose a preset to apply instance. Modifying other instance will switch this to 'Custom'.")]
         [Choice(new string[] { "Vanilla", "Realistic", "Balanced", "Custom" })]
@@ -466,7 +452,6 @@ namespace CarcassYieldTweaker
         [Description("Maximum time allowed in hours to harvest meat from a carcass. Vanilla value is 5 hours.")]
         [Slider(1f, 24f, NumberFormat = "{0:F1} hrs.")]
         public float MaxHarvestTimeSliderGlobal = VanillaSettings.MaxHarvestTimeSliderGlobal;
-
 
 
         [Section("Rabbit")]
@@ -1006,98 +991,139 @@ namespace CarcassYieldTweaker
         public int QuarterDurationMinutesSliderCougar = VanillaSettings.QuarterDurationMinutesSliderCougar;
 
 
-
-
         [Section("Carcass Decay")]
 
-        [Name("Rabbit")]
-        [Description("Multiply the carcass decay rate for a Rabbit. Vanilla value is 1\n" +
-            "\nDefault decay for held carcasses is 10% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderRabbit = VanillaSettings.DecayRateRabbit;
+        [Name("Disable Carcass Decay")]
+        [Description("Completely disable the decay of animal carcasses.")]
+        public bool DisableCarcassDecayGlobal = false;
 
-        [Name("Ptarmigan")]
-        [Description("Change the carcass decay rate for a Ptarmigan. Vanilla value is 1\n" +
-            "\nDefault decay for held carcasses is 10% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderPtarmigan = VanillaSettings.DecayRatePtarmigan;
+        //[Name("Adjust Existing Carcasses")]
+        //[Description("Adjust the decay rate for game generated animal carcasses which were already dead. \n" +
+        //    "(Uses per animal settings)")]
+        //public bool AdjustExistingCarcasses = false;
 
-        [Name("Doe")]
-        [Description("Change the carcass decay rate for a Doe. Vanilla value is 1\n" +
-            "\nDefault decay for un-movable carcasses is 33.3% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderDoe = VanillaSettings.DecayRateDoe;
+        //[Name("Rabbit")]
+        //[Description("Decay rate multiplier for a Rabbit. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 10%")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderRabbit = VanillaSettings.DecayRateMultiplierSliderRabbit;
 
-        [Name("Stag")]
-        [Description("Change the carcass decay rate for a Stag. Vanilla value is 1\n" +
-            "\nDefault decay for un-movable carcasses is 33.3% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderStag = VanillaSettings.DecayRateStag;
+        //[Name("Ptarmigan")]
+        //[Description("Decay rate multiplier for a Ptarmigan. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 10%")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderPtarmigan = VanillaSettings.DecayRateMultiplierSliderPtarmigan;
 
-        [Name("Moose")]
-        [Description("Change the carcass decay rate for a Moose. Vanilla value is 1\n" +
-            "\nDefault decay for un-movable carcasses is 33.3% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderMoose = VanillaSettings.DecayRateMoose;
+        //[Name("Doe")]
+        //[Description("Decay rate multiplier for a Doe. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 33.3%.")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderDoe = VanillaSettings.DecayRateMultiplierSliderDoe;
 
-        [Name("Wolf")]
-        [Description("Change the carcass decay rate for a Wolf. Vanilla value is 1\n" +
-            "\nDefault decay for un-movable carcasses is 33.3% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderWolf = VanillaSettings.DecayRateWolf;
+        //[Name("Stag")]
+        //[Description("Decay rate multiplier for a Stag. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 33.3%.")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderStag = VanillaSettings.DecayRateMultiplierSliderStag;
 
-        [Name("Timberwolf")]
-        [Description("Change the carcass decay rate for a TimberWolf. Vanilla value is 1\n" +
-            "\nDefault decay for un-movable carcasses is 33.3% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderTimberWolf = VanillaSettings.DecayRateTimberWolf;
+        //[Name("Moose")]
+        //[Description("Decay rate multiplier for a Moose. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 33.3%.")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderMoose = VanillaSettings.DecayRateMultiplierSliderMoose;
 
-        [Name("Poisoned Wolf")]
-        [Description("Change the carcass decay rate for a Poisoned Wolf. Vanilla value is 1\n" +
-            "\nDefault decay for un-movable carcasses is 33.3% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderPoisonedWolf = VanillaSettings.DecayRatePoisonedWolf;
+        //[Name("Wolf")]
+        //[Description("Decay rate multiplier for a Wolf. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 33.3%.")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderWolf = VanillaSettings.DecayRateMultiplierSliderWolf;
 
-        [Name("Bear")]
-        [Description("Change the carcass decay rate for a Bear. Vanilla value is 1\n" +
-            "\nDefault decay for un-movable carcasses is 33.3% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderBear = VanillaSettings.DecayRateBear;
+        //[Name("Timberwolf")]
+        //[Description("Decay rate multiplier for a TimberWolf. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 33.3%.")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderTimberWolf = VanillaSettings.DecayRateMultiplierSliderTimberWolf;
 
-        [Name("Cougar")]
-        [Description("Change the carcass decay rate for a Cougar. Vanilla value is 1\n" +
-            "\nDefault decay for un-movable carcasses is 33.3% per day")]
-        [Slider(0.1f, 2f)]
-        public float DecayRateSliderCougar = VanillaSettings.DecayRateCougar;
+        //[Name("Poisoned Wolf")]
+        //[Description("Decay rate multiplier for a Poisoned Wolf. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 33.3%.")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderPoisonedWolf = VanillaSettings.DecayRateMultiplierSliderPoisonedWolf;
+
+        //[Name("Bear")]
+        //[Description("Decay rate multiplier for a Bear. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 33.3%.")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderBear = VanillaSettings.DecayRateMultiplierSliderBear;
+
+        //[Name("Cougar")]
+        //[Description("Decay rate multiplier for a Cougar. Vanilla value is 1.\n" +
+        //    "Normal daily decay rate is 33.3%.")]
+        //[Slider(0.01f, 3f, NumberFormat = "{0:F2}x")]
+        //public float DecayRateMultiplierSliderCougar = VanillaSettings.DecayRateMultiplierSliderCougar;
+
+
+        [Section("Harvest Panel Settings")]
+
+        [Name("Show Condition Percent")]
+        [Description("Show the condition of the carcass in the harvest Panel.")]
+        public bool ShowPanelCondition = false;
+
+        [Name("Condition Text Color")]
+        [Description("Color the condition text according to the carcass condition percentage.\n" +
+            "\n100% to 66% - Green" +
+            "\n 66% to 33% - Yellow" +
+            "\n 33% to  1% - Red")]
+        public bool ShowPanelConditionColors = false;
+
+        [Name("Always Show Frozen Percent")]
+        [Description("Always show the frozen percentage in the harvest Panel, even if the carcass is not frozen.")]
+        public bool AlwaysShowPanelFrozenPercent = false;
+
+        [Name("Frozen Text Color")]
+        [Description("Color the frozen text according to the carcass frozen percentage.\n" +
+            "\n  0% to  25% - Orange - Warm" +
+            "\n 25% to  50% - White - Cold" +
+            "\n 50% to  75% - Cyan - Frozen" +
+            "\n 75% to 100% - Blue - Frozen Solid")]
+        public bool ShowPanelFrozenColors = false;
 
 
     }
 
-    // Define Vanilla Settings (only once) - Descriptions will still need updated if something changes
+    // Define Vanilla Settings (only once) - only the descriptions will need updated if something changes
     internal static class VanillaSettings
     {
         // Global
         internal static float QuarterWasteMultiplier = 2.0f;
-        internal static float MeatTimeSliderGlobal = 1.0f;
-        internal static float FrozenMeatTimeSliderGlobal = 1.0f;
-        internal static float GutTimeSliderGlobal = 1.0f;
-        internal static float DecayRateSliderGlobal = 1.0f;
-        internal static float MaxHarvestTimeSliderGlobal = 24f;
+        internal static float MeatTimeSliderGlobal = 1f;
+        internal static float FrozenMeatTimeSliderGlobal = 1f;
+        internal static float GutTimeSliderGlobal = 1f;
+        //internal static float DecayRateMultiplierSliderGlobal = 1f;
+        internal static float MaxHarvestTimeSliderGlobal = 5f;
+        internal static bool ModifyNativeCarcassesGlobal = false;
+        internal static bool DisableCarcassDecayGlobal = false;
+
+        // Settings
+        internal static bool AlwaysShowPanelFrozenPercent = false;
+        internal static bool ShowPanelFrozenColors = false;
+        internal static bool ShowPanelCondition = false;
+        internal static bool ShowPanelConditionColors = false;
 
         // Rabbit
         internal static float MeatSliderMinRabbit = 0.75f;
         internal static float MeatSliderMaxRabbit = 1.5f;
         internal static int HideCountSliderRabbit = 1;
         internal static int GutCountSliderRabbit = 1;
-        internal static float HideTimeSliderRabbit = 1.0f;
-        internal static float DecayRateRabbit = 1.0f;
+        internal static float HideTimeSliderRabbit = 1f;
+        internal static float DecayRateMultiplierSliderRabbit = 1f;
 
         // Ptarmigan (DLC)
         internal static float MeatSliderMinPtarmigan = 0.75f;
         internal static float MeatSliderMaxPtarmigan = 1.5f;
         internal static int HideCountSliderPtarmigan = 4;
-        internal static float HideTimeSliderPtarmigan = 1.0f;
-        internal static float DecayRatePtarmigan = 1.0f;
+        internal static float HideTimeSliderPtarmigan = 1f;
+        internal static float DecayRateMultiplierSliderPtarmigan = 1f;
 
         // Doe
         internal static float MeatSliderMinDoe = 7f;
@@ -1108,8 +1134,7 @@ namespace CarcassYieldTweaker
         internal static int FatToMeatPercentSliderDoe = 20;
         internal static float HideTimeSliderDoe = 1f;
         internal static int QuarterDurationMinutesSliderDoe = 60;
-        internal static float DecayRateDoe = 1.0f;
-
+        internal static float DecayRateMultiplierSliderDoe = 1f;
 
         // Stag
         internal static float MeatSliderMinStag = 11f;
@@ -1120,7 +1145,7 @@ namespace CarcassYieldTweaker
         internal static int FatToMeatPercentSliderStag = 20;
         internal static float HideTimeSliderStag = 1f;
         internal static int QuarterDurationMinutesSliderStag = 75;
-        internal static float DecayRateStag = 1.0f;
+        internal static float DecayRateMultiplierSliderStag = 1f;
 
         // Moose
         internal static float MeatSliderMinMoose = 30f;
@@ -1128,11 +1153,11 @@ namespace CarcassYieldTweaker
         internal static int HideCountSliderMoose = 1;
         internal static int GutCountSliderMoose = 12;
         internal static float QuarterSizeSliderMoose = 5f;
-        internal static float FrozenMeatTimeSliderMoose = 1.0f;
-        internal static float HideTimeSliderMoose = 1.0f;
+        internal static float FrozenMeatTimeSliderMoose = 1f;
+        internal static float HideTimeSliderMoose = 1f;
         internal static int FatToMeatPercentSliderMoose = 15;
         internal static int QuarterDurationMinutesSliderMoose = 120;
-        internal static float DecayRateMoose = 1.0f;
+        internal static float DecayRateMultiplierSliderMoose = 1f;
 
         // Wolf
         internal static float MeatSliderMinWolf = 3f;
@@ -1141,9 +1166,9 @@ namespace CarcassYieldTweaker
         internal static int GutCountSliderWolf = 2;
         internal static float QuarterSizeSliderWolf = 2.5f;
         internal static int FatToMeatPercentSliderWolf = 10;
-        internal static float HideTimeSliderWolf = 1.0f;
+        internal static float HideTimeSliderWolf = 1f;
         internal static int QuarterDurationMinutesSliderWolf = 60;
-        internal static float DecayRateWolf = 1.0f;
+        internal static float DecayRateMultiplierSliderWolf = 1f;
 
         // TimberWolf
         internal static float MeatSliderMinTimberWolf = 4f;
@@ -1152,15 +1177,15 @@ namespace CarcassYieldTweaker
         internal static int GutCountSliderTimberWolf = 2;
         internal static float QuarterSizeSliderTimberWolf = 2.5f;
         internal static int FatToMeatPercentSliderTimberWolf = 10;
-        internal static float HideTimeSliderTimberWolf = 1.0f;
+        internal static float HideTimeSliderTimberWolf = 1f;
         internal static int QuarterDurationMinutesSliderTimberWolf = 60;
-        internal static float DecayRateTimberWolf = 1.0f;
+        internal static float DecayRateMultiplierSliderTimberWolf = 1f;
 
         // Poisoned Wolf (DLC)
         internal static int HideCountSliderPoisonedWolf = 1;
         internal static int GutCountSliderPoisonedWolf = 2;
-        internal static float HideTimeSliderPoisonedWolf = 1.0f;
-        internal static float DecayRatePoisonedWolf = 1.0f;
+        internal static float HideTimeSliderPoisonedWolf = 1f;
+        internal static float DecayRateMultiplierSliderPoisonedWolf = 1f;
 
         // Bear
         internal static float MeatSliderMinBear = 25f;
@@ -1169,9 +1194,9 @@ namespace CarcassYieldTweaker
         internal static int GutCountSliderBear = 10;
         internal static float QuarterSizeSliderBear = 5f;
         internal static int FatToMeatPercentSliderBear = 10;
-        internal static float HideTimeSliderBear = 1.0f;
+        internal static float HideTimeSliderBear = 1f;
         internal static int QuarterDurationMinutesSliderBear = 120;
-        internal static float DecayRateBear = 1.0f;
+        internal static float DecayRateMultiplierSliderBear = 1f;
 
         // Cougar (DLC)
         internal static float MeatSliderMinCougar = 4f;
@@ -1180,9 +1205,9 @@ namespace CarcassYieldTweaker
         internal static int GutCountSliderCougar = 2;
         internal static float QuarterSizeSliderCougar = 2.5f;
         internal static int FatToMeatPercentSliderCougar = 10;
-        internal static float HideTimeSliderCougar = 1.0f;
+        internal static float HideTimeSliderCougar = 1f;
         internal static int QuarterDurationMinutesSliderCougar = 120;
-        internal static float DecayRateCougar = 1.0f;
+        internal static float DecayRateMultiplierSliderCougar = 1f;
 
     }
 }
